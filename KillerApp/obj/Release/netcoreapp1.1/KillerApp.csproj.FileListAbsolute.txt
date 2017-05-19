@@ -1,0 +1,9 @@
+D:\Downloads\killerappre\KillerApp\KillerApp\bin\Release\netcoreapp1.1\KillerApp.deps.json
+D:\Downloads\killerappre\KillerApp\KillerApp\bin\Release\netcoreapp1.1\KillerApp.runtimeconfig.json
+D:\Downloads\killerappre\KillerApp\KillerApp\bin\Release\netcoreapp1.1\KillerApp.runtimeconfig.dev.json
+D:\Downloads\killerappre\KillerApp\KillerApp\bin\Release\netcoreapp1.1\KillerApp.dll
+D:\Downloads\killerappre\KillerApp\KillerApp\bin\Release\netcoreapp1.1\KillerApp.pdb
+D:\Downloads\killerappre\KillerApp\KillerApp\obj\Release\netcoreapp1.1\KillerApp.csprojResolveAssemblyReference.cache
+D:\Downloads\killerappre\KillerApp\KillerApp\obj\Release\netcoreapp1.1\KillerApp.AssemblyInfo.cs
+D:\Downloads\killerappre\KillerApp\KillerApp\obj\Release\netcoreapp1.1\KillerApp.dll
+D:\Downloads\killerappre\KillerApp\KillerApp\obj\Release\netcoreapp1.1\KillerApp.pdb

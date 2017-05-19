@@ -25,3 +25,12 @@ D:\Downloads\killerapp register\Proftaak\KillerApp\obj\Debug\netcoreapp1.1\Kille
 D:\Downloads\killerapp register\Proftaak\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.AssemblyInfo.cs
 D:\Downloads\killerapp register\Proftaak\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.dll
 D:\Downloads\killerapp register\Proftaak\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.pdb
+D:\Downloads\killerappre\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.deps.json
+D:\Downloads\killerappre\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.runtimeconfig.json
+D:\Downloads\killerappre\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.runtimeconfig.dev.json
+D:\Downloads\killerappre\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.dll
+D:\Downloads\killerappre\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.pdb
+D:\Downloads\killerappre\KillerApp\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.csprojResolveAssemblyReference.cache
+D:\Downloads\killerappre\KillerApp\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.AssemblyInfo.cs
+D:\Downloads\killerappre\KillerApp\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.dll
+D:\Downloads\killerappre\KillerApp\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.pdb
