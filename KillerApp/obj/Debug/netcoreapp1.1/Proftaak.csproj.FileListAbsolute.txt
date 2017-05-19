@@ -1,0 +1,9 @@
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\Proftaak.deps.json
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\Proftaak.runtimeconfig.json
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\Proftaak.runtimeconfig.dev.json
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\Proftaak.dll
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\Proftaak.pdb
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\Proftaak.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\Proftaak.AssemblyInfo.cs
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\Proftaak.dll
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\Proftaak.pdb

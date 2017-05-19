@@ -1,0 +1,27 @@
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\KillerApp.deps.json
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\KillerApp.runtimeconfig.json
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\KillerApp.runtimeconfig.dev.json
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\KillerApp.dll
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\KillerApp.pdb
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\KillerApp.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\KillerApp.AssemblyInfo.cs
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\KillerApp.dll
+C:\Users\Alex\Desktop\test\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\KillerApp.pdb
+D:\Downloads\killerapp register\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\KillerApp.deps.json
+D:\Downloads\killerapp register\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\KillerApp.runtimeconfig.json
+D:\Downloads\killerapp register\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\KillerApp.runtimeconfig.dev.json
+D:\Downloads\killerapp register\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\KillerApp.csprojResolveAssemblyReference.cache
+D:\Downloads\killerapp register\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\KillerApp.AssemblyInfo.cs
+D:\Downloads\killerapp register\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\KillerApp.dll
+D:\Downloads\killerapp register\Proftaak\Proftaak\obj\Debug\netcoreapp1.1\KillerApp.pdb
+D:\Downloads\killerapp register\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\KillerApp.dll
+D:\Downloads\killerapp register\Proftaak\Proftaak\bin\Debug\netcoreapp1.1\KillerApp.pdb
+D:\Downloads\killerapp register\Proftaak\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.deps.json
+D:\Downloads\killerapp register\Proftaak\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.runtimeconfig.json
+D:\Downloads\killerapp register\Proftaak\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.runtimeconfig.dev.json
+D:\Downloads\killerapp register\Proftaak\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.dll
+D:\Downloads\killerapp register\Proftaak\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.pdb
+D:\Downloads\killerapp register\Proftaak\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.csprojResolveAssemblyReference.cache
+D:\Downloads\killerapp register\Proftaak\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.AssemblyInfo.cs
+D:\Downloads\killerapp register\Proftaak\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.dll
+D:\Downloads\killerapp register\Proftaak\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.pdb
