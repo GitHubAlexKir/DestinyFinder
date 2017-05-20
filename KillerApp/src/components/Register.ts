@@ -10,6 +10,8 @@ export class Register {
     passwordConfirm = "";
     classID = "";
     player;
+    response;
+
     constructor(private auth: AuthService, private http: HttpClient) {
     }
 
@@ -25,13 +27,14 @@ export class Register {
         }
         else {
             this.player = new Player(this.name, this.password, this.classID);
-            console.log(this.player);
-            console.log(this.player.name);
-            console.log(this.player.classID);
             this.http.fetch('Player/register', {
                 body: json(this.player)
-                    }
-            ).then(response => {
+            }).then(response => response.json())
+                .then(data => {
+                this.response = data,
+                console.log(this.response);
+                });
+            if (this.response == 'false') {
                 swal({
                     title: "U bent succesvol geregistreerd",
                     type: "success",
@@ -39,43 +42,43 @@ export class Register {
                     showConfirmButton: false,
                     closeOnConfirm: true
                 });
-            })
-                .catch(err => {
-                    swal({
-                        title: "Naam is al bezet",
-                        type: "warning",
-                        showCancelButton: true,
-                        showConfirmButton: false,
-                        closeOnConfirm: true
-                    });
-                });
-        }
-
-    }
-
-    login() {
-        this.auth.login({
-            name: this.name,
-            password: this.password
-        }).then(response => {
-            swal({
-                title: "U bent succesvol ingelogd",
-                type: "success",
-                showCancelButton: true,
-                showConfirmButton: false,
-                closeOnConfirm: true
-            });
-        })
-            .catch(err => {
+            }
+            if (this.response == 'true') {
                 swal({
-                    title: "Inloggegevens zijn onjuist",
+                    title: "Naam is al bezet",
                     type: "warning",
                     showCancelButton: true,
                     showConfirmButton: false,
                     closeOnConfirm: true
                 });
-            });
+            }
+        }
+
     }
+
+   // login() {
+   //     this.auth.login({
+   //         name: this.name,
+   //         password: this.password
+   //     }).then(response => {
+   //         swal({
+   //             title: "U bent succesvol ingelogd",
+   //             type: "success",
+   //             showCancelButton: true,
+   //             showConfirmButton: false,
+   //             closeOnConfirm: true
+   //         });
+   //     })
+   //         .catch(err => {
+   //             swal({
+   //                 title: "Inloggegevens zijn onjuist",
+   //                 type: "warning",
+   //                 showCancelButton: true,
+   //                 showConfirmButton: false,
+   //                 closeOnConfirm: true
+   //             });
+   //         });
+   // }
 }
 
 export class Player{

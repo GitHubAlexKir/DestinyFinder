@@ -11010,10 +11010,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Downloads\\killerappre\\KillerApp\\KillerApp\\KillerApp.csproj",
+      "projectUniqueName": "D:\\Gebruiker\\Documenten\\Visual Studio 2017\\Projects\\KillerApp\\KillerApp\\KillerApp.csproj",
       "projectName": "KillerApp",
-      "projectPath": "D:\\Downloads\\killerappre\\KillerApp\\KillerApp\\KillerApp.csproj",
-      "outputPath": "D:\\Downloads\\killerappre\\KillerApp\\KillerApp\\obj\\",
+      "projectPath": "D:\\Gebruiker\\Documenten\\Visual Studio 2017\\Projects\\KillerApp\\KillerApp\\KillerApp.csproj",
+      "outputPath": "D:\\Gebruiker\\Documenten\\Visual Studio 2017\\Projects\\KillerApp\\KillerApp\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

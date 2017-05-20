@@ -36,7 +36,7 @@ namespace KillerApp.Controllers
 
       if (!playerRepo.login(name, password)) throw new UnauthorizedAccessException();
 
-      return CreateAccessToken(name, new[] { "user" });
+      return CreateAccessToken(playerRepo.getID(name), new[] { "user" });
     }
 
 

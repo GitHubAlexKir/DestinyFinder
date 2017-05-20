@@ -1,15 +1,20 @@
 import { autoinject } from 'aurelia-framework';
 import { Router, RouterConfiguration } from 'aurelia-router'
 import { HttpClient } from 'aurelia-fetch-client';
-import { FetchConfig } from 'aurelia-authentication';
+import { AuthService, FetchConfig } from 'aurelia-authentication';
 import { Container } from 'aurelia-dependency-injection';
-
+import * as jwt_decode from 'jwt-decode';
 @autoinject
 export class App {
     router: Router;
+    authenticated: boolean;
 
-    constructor(private http: HttpClient, private config: FetchConfig) {
+    constructor(private http: HttpClient, private config: FetchConfig, private authService: AuthService) {
         this.configHttp();
+        this.authenticated = this.authService.authenticated;
+        if (this.authenticated) {
+            alert(jwt_decode(this.authService.getAccessToken()).userid);
+        }
     }
 
 

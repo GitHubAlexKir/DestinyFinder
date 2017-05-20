@@ -96,22 +96,52 @@ namespace KillerApp.Repositories.UserRepo
         return false;
       }
     }
-
-    public Player getPlayer(string name)
+    public string getID(string name)
+    {
+      string ID;
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select * from speler where naam like @name", connection.getConnection());
+      sqlCommand.Parameters.AddWithValue("@name", name);
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      reader.Read();
+      ID = reader["ID"].ToString();
+      connection.disConnect();
+      return ID;
+    }
+    public Player getPlayer(int ID)
     {
       Player player;
       connection.Connect();
-      SqlCommand sqlCommand = new SqlCommand("select * from speler spel join Statistiek stat on stat.spelerID = spel.ID where spel.naam like @name", connection.getConnection());
+      SqlCommand sqlCommand = new SqlCommand("select * from speler spel join Statistiek stat on stat.spelerID = spel.ID where spel.ID = @ID", connection.getConnection());
 
-      sqlCommand.Parameters.AddWithValue("@name", name);
+      sqlCommand.Parameters.AddWithValue("@ID", ID);
       SqlDataReader reader = sqlCommand.ExecuteReader();
       reader.Read();
       player = new Player(Convert.ToInt32(reader["ID"]),
           Convert.ToInt32(reader["classID"]), reader["naam"].ToString(),
           Convert.ToInt32(reader["HP"]), Convert.ToInt32(reader["playerlevel"]),
-          Convert.ToInt32(reader["XPnextlevel"]));
+          Convert.ToInt32(reader["XPnextlevel"]), getWeapons(ID));
       connection.disConnect();
       return player;
+    }
+
+    private List<Weapon> getWeapons(int ID)
+    {
+      List<Weapon> weapons = new List<Weapon>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select w.id, w.naam, w.damage,w.minLevel from Wapen w join Speler s on s.ID = w.SpelerID where s.ID = @ID", connection.getConnection());
+
+      sqlCommand.Parameters.AddWithValue("@ID", ID);
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          weapons.Add(new Weapon(Convert.ToInt16(reader["ID"]), reader["naam"].ToString(), Convert.ToInt16(reader["damage"]), Convert.ToInt16(reader["minLevel"])));
+        }
+      }
+      connection.disConnect();
+      return weapons;
     }
 
     public void UpdatePlayer(Player player)
