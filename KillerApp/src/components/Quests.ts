@@ -5,38 +5,22 @@ import { AuthService } from "aurelia-authentication"
 import * as jwt_decode from 'jwt-decode';
 
 @autoinject
-export class Character {
+export class Quest {
     player;
-    playerstats;
-    playerurl = "/Images/Warlock.png";
+    playerQuests;
     constructor(private auth: AuthService, private http: HttpClient) {
-        this.weapons();
+        this.quests();
     }
 
-    weapons() {
+    quests() {
         this.player = new Player(jwt_decode(this.auth.getAccessToken()).userid);
         return this.http.fetch('Player/get', {
             body: json(this.player)
         }).then(response => response.json())
             .then(data => {
                 console.log(data);
-                this.playerstats = data;
-                this.setImage();
+                this.playerQuests = data;
             });
-    }
-    setImage() {
-        switch (this.playerstats.classID) {
-            case 1:
-                this.playerurl = "/images/hunter.png";
-                break;
-            case 2:
-                this.playerurl = "/images/titan.png";
-                break;
-            case 3:
-                this.playerurl = "/images/warlock.png";
-                break; 
-            default:
-        }
     }
 }
 

@@ -1,0 +1,36 @@
+﻿<template>
+  <div class="container">
+    <h2>Quests.</h2>
+    <p>Hier ziet u een overzicht van al je quests.</p>
+    <div class="container">
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Naam</th>
+          <th>requirement(s)</th>
+          <th>voortgang</th>
+          <th>opties</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="quest of playerQuests.quests">
+          <td class="col-md-2">
+            ${quest.description}
+          </td>
+            <td class="col-md-8" repeat.for="requirement of quest.requirements">
+              ${requirement.description}
+          </td>
+          <td class="col-md-2">
+            voortgang..
+          </td>
+          <td class="col-md-2">
+            <button type="button" class="btn btn-default btn-sm">
+              <span class="glyphicon glyphicon-remove"></span> Verwijder
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>

@@ -120,7 +120,7 @@ namespace KillerApp.Repositories.UserRepo
       player = new Player(Convert.ToInt32(reader["ID"]),
           Convert.ToInt32(reader["classID"]), reader["naam"].ToString(),
           Convert.ToInt32(reader["HP"]), Convert.ToInt32(reader["playerlevel"]),
-          Convert.ToInt32(reader["XPnextlevel"]), getWeapons(ID));
+          Convert.ToInt32(reader["XPnextlevel"]), getWeapons(ID),getQuests(ID));
       connection.disConnect();
       return player;
     }
@@ -142,6 +142,55 @@ namespace KillerApp.Repositories.UserRepo
       }
       connection.disConnect();
       return weapons;
+    }
+    private List<Quest> getQuests(int ID)
+    {
+      List<Quest> quests = new List<Quest>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select q.id, q.MainQuestID, q.Omschrijving from Quest q join Speler s on s.ID = q.SpelerID where s.ID = @ID;", connection.getConnection());
+
+      sqlCommand.Parameters.AddWithValue("@ID", ID);
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          int questID = Convert.ToInt16(reader["ID"]);
+          int mainquestID;
+          if (reader["mainQuestID"].Equals(DBNull.Value))
+          {
+            mainquestID = 0;
+          }
+          else
+          {
+            mainquestID = Convert.ToInt16(reader["mainQuestID"]);
+          }
+          string omschrijving = reader["omschrijving"].ToString();
+          List<QuestRequirement> questsreq = getQuestRequirements(questID);
+          quests.Add(new Quest(questID,mainquestID,omschrijving,questsreq));
+        }
+      }
+      connection.disConnect();
+      return quests;
+    }
+
+    private List<QuestRequirement> getQuestRequirements(int ID)
+    {
+      List<QuestRequirement> requirements = new List<QuestRequirement>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select * from QuestsRequirement where QuestID= @ID;", connection.getConnection());
+
+      sqlCommand.Parameters.AddWithValue("@ID", ID);
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          requirements.Add(new QuestRequirement(Convert.ToInt16(reader["ID"]), Convert.ToInt16(reader["voortgang"]), reader["omschrijving"].ToString()));
+        }
+      }
+      connection.disConnect();
+      return requirements;
     }
 
     public void UpdatePlayer(Player player)

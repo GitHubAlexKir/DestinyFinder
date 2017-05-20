@@ -14,10 +14,11 @@ namespace KillerApp.enitities
     public int level;
     public int XPNextLevel;
     public List<Weapon> weapons;
+    public List<Quest> quests;
     public string classname;
-
+    
     public Player(int ID, int classID, string name, int HP, int level, int XPNextLevel
-      ,List<Weapon> weapons)
+      ,List<Weapon> weapons, List<Quest> quests)
     {
       this.ID = ID;
       this.classID = classID;
@@ -26,6 +27,7 @@ namespace KillerApp.enitities
       this.level = level;
       this.XPNextLevel = XPNextLevel;
       this.weapons = weapons;
+      this.quests = quests;
       this.classname = getClass();
     }
 
