@@ -11,6 +11,7 @@ namespace KillerApp.enitities
         public int mainQuestID;
         public string description;
         public List<QuestRequirement> requirements;
+        public string progress;
 
         public Quest(int ID, int mainQuestID, string description, List<QuestRequirement> requirements)
         {
@@ -18,6 +19,21 @@ namespace KillerApp.enitities
             this.mainQuestID = mainQuestID;
             this.description = description;
             this.requirements = requirements;
+      this.progress = getProgress(requirements);
         }
+
+    private string getProgress(List<QuestRequirement> requirements)
+    {
+      int total = requirements.Count;
+      int completed = 0;
+      foreach (QuestRequirement item in requirements)
+      {
+        if (item.progress)
+        {
+          completed++;
+        }
+      }
+      return "(" + completed + "/" + total + ")";
     }
+  }
 }

@@ -120,7 +120,7 @@ namespace KillerApp.Repositories.UserRepo
       player = new Player(Convert.ToInt32(reader["ID"]),
           Convert.ToInt32(reader["classID"]), reader["naam"].ToString(),
           Convert.ToInt32(reader["HP"]), Convert.ToInt32(reader["playerlevel"]),
-          Convert.ToInt32(reader["XPnextlevel"]), getWeapons(ID),getQuests(ID));
+          Convert.ToInt32(reader["XPnextlevel"]), getWeapons(ID),getQuests(ID),getBounties(ID));
       connection.disConnect();
       return player;
     }
@@ -191,6 +191,36 @@ namespace KillerApp.Repositories.UserRepo
       }
       connection.disConnect();
       return requirements;
+    }
+    private List<Bounty> getBounties(int ID)
+    {
+      List<Bounty> bounties = new List<Bounty>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select * from Bounty where SpelerID= @ID;", connection.getConnection());
+
+      sqlCommand.Parameters.AddWithValue("@ID", ID);
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          int bountyID = Convert.ToInt16(reader["ID"]);
+          string location;
+          if (reader["locatie"].Equals(DBNull.Value))
+          {
+            location = "Everywhere";
+          }
+          else
+          {
+            location = reader["locatie"].ToString();
+          }
+          string omschrijving = reader["omschrijving"].ToString();
+          int progress = Convert.ToInt16(reader["voortgang"]);
+          bounties.Add(new Bounty(bountyID, location, omschrijving, progress));
+        }
+      }
+      connection.disConnect();
+      return bounties;
     }
 
     public void UpdatePlayer(Player player)

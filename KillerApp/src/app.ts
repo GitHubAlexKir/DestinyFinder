@@ -30,6 +30,7 @@ export class App {
             { route: ['/', 'Character'], name: 'Character', moduleId: 'components/Character', auth: true },
             { route: ['/', 'Weapons'], name: 'Weapons', moduleId: 'components/Weapons', auth: true },
             { route: ['/', 'Quests'], name: 'Quests', moduleId: 'components/Quests', auth: true },
+            { route: ['/', 'Bounties'], name: 'Bounties', moduleId: 'components/Bounties', auth: true },
             { route: ['/', 'Register'], name: 'Register', moduleId: 'components/Register' },
         ]);
     }

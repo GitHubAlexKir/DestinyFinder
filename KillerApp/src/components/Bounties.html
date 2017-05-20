@@ -1,28 +1,28 @@
 ﻿<template>
   <div class="container">
-    <h2>Quests.</h2>
-    <p>Hier ziet u een overzicht van al je quests.</p>
+    <h2>Bounties.</h2>
+    <p>Hier ziet u een overzicht van al je Bounties.</p>
     <div class="container">
     </div>
     <table class="table">
       <thead>
         <tr>
-          <th>Naam</th>
-          <th>requirement(s)</th>
+          <th>Locatie</th>
+          <th>Omschrijving</th>
           <th>voortgang</th>
           <th>opties</th>
         </tr>
       </thead>
       <tbody>
-        <tr repeat.for="quest of playerQuests.quests">
+        <tr repeat.for="bounty of playerBounties.bounties">
           <td class="col-md-2">
-            ${quest.description}
+            ${bounty.location}
           </td>
-            <td class="col-md-8" repeat.for="requirement of quest.requirements">
-              ${requirement.description}
+            <td class="col-md-8">
+              ${bounty.description}
           </td>
           <td class="col-md-2">
-            ${quest.progress}
+            ${bounty.progress}
           </td>
           <td class="col-md-2">
             <button type="button" class="btn btn-default btn-sm">
