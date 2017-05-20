@@ -8,7 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <Content Include="wwwroot\Images\Hunter.png" />
+    <Content Include="wwwroot\Images\Titan.png" />
+    <Content Include="wwwroot\Images\Warlock.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />

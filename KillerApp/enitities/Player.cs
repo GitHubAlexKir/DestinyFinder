@@ -14,6 +14,7 @@ namespace KillerApp.enitities
     public int level;
     public int XPNextLevel;
     public List<Weapon> weapons;
+    public string classname;
 
     public Player(int ID, int classID, string name, int HP, int level, int XPNextLevel
       ,List<Weapon> weapons)
@@ -25,37 +26,10 @@ namespace KillerApp.enitities
       this.level = level;
       this.XPNextLevel = XPNextLevel;
       this.weapons = weapons;
+      this.classname = getClass();
     }
 
-    public int getID()
-    {
-      return ID;
-    }
-
-    public int getClassID()
-    {
-      return classID;
-    }
-
-    public string getName()
-    {
-      return name;
-    }
-
-    public int getHP()
-    {
-      return HP;
-    }
-
-    public int getLevel()
-    {
-      return level;
-    }
-
-    public int getXPNextLevel()
-    {
-      return XPNextLevel;
-    }
+    
 
     public void setClass(string className)
     {
@@ -71,21 +45,6 @@ namespace KillerApp.enitities
           classID = 3;
           break;
       }
-    }
-
-    public void setHP(int HP)
-    {
-      this.HP = HP;
-    }
-
-    public void setLevel(int level)
-    {
-      this.level = level;
-    }
-
-    public void setXPNextLevel(int XPNextLevel)
-    {
-      this.XPNextLevel = XPNextLevel;
     }
 
     public string getClass()

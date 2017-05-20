@@ -14,7 +14,7 @@ export class Weapons {
 
     weapons() {
         this.player = new Player(jwt_decode(this.auth.getAccessToken()).userid);
-        return this.http.fetch('Player/getweapons', {
+        return this.http.fetch('Player/get', {
             body: json(this.player)
         }).then(response => response.json())
             .then(data => {

@@ -35,7 +35,7 @@ namespace KillerApp.Controllers
       }
     }
     [HttpPost]
-    public JsonResult getweapons([FromBody] dynamic user)
+    public JsonResult get([FromBody] dynamic user)
     {
       int ID = user.ID;
       return Json(playerRepo.getPlayer(ID));

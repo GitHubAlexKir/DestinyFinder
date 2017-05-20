@@ -149,18 +149,18 @@ namespace KillerApp.Repositories.UserRepo
       connection.Connect();
       SqlCommand sqlCommand = new SqlCommand("update speler set classID = @ClassID where id = @ID", connection.getConnection());
 
-      sqlCommand.Parameters.AddWithValue("@ID", player.getID());
-      sqlCommand.Parameters.AddWithValue("@ClassID", player.getClassID());
+      sqlCommand.Parameters.AddWithValue("@ID", player.ID);
+      sqlCommand.Parameters.AddWithValue("@ClassID", player.classID);
 
       sqlCommand.ExecuteNonQuery();
       connection.disConnect();
 
       connection.Connect();
       sqlCommand = new SqlCommand("update statistiek set HP = @HP, playerlevel = @level, XPNextLevel = @XP where spelerid = @spelerID", connection.getConnection());
-      sqlCommand.Parameters.AddWithValue("@spelerID", player.getID());
-      sqlCommand.Parameters.AddWithValue("@HP", player.getHP());
-      sqlCommand.Parameters.AddWithValue("@Level", player.getLevel());
-      sqlCommand.Parameters.AddWithValue("@XP", player.getXPNextLevel());
+      sqlCommand.Parameters.AddWithValue("@spelerID", player.ID);
+      sqlCommand.Parameters.AddWithValue("@HP", player.HP);
+      sqlCommand.Parameters.AddWithValue("@Level", player.level);
+      sqlCommand.Parameters.AddWithValue("@XP", player.XPNextLevel);
       sqlCommand.ExecuteNonQuery();
       connection.disConnect();
     }
