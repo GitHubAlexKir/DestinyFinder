@@ -34,5 +34,14 @@ namespace KillerApp.Controllers
       }
       bountyRepo.setBounty(ID, progress);
     }
+
+    [HttpPost]
+    public void addBounty([FromBody] dynamic bounty)
+    {
+      int userID = bounty.playerID;
+      string description = bounty.description;
+      string location = bounty.location;
+      bountyRepo.addBounty(location, description, userID);
+    }
   }
 }

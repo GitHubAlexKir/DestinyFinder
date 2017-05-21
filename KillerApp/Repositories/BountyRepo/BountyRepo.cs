@@ -25,5 +25,16 @@ namespace KillerApp.Repositories.BountyRepo
       connection.disConnect();
     }
 
+    public void addBounty(string location, string description, int userID)
+    {
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("INSERT INTO Bounty (SpelerID, locatie,omschrijving,voortgang) VALUES (@spelerID, @location, @description, '0');", connection.getConnection());
+      sqlCommand.Parameters.AddWithValue("@SpelerID", userID);
+      sqlCommand.Parameters.AddWithValue("@location", location);
+      sqlCommand.Parameters.AddWithValue("@description", description);
+      sqlCommand.ExecuteNonQuery();
+      connection.disConnect();
+    }
+
   }
 }

@@ -3,6 +3,37 @@
     <h2>Bounties.</h2>
     <p>Hier ziet u een overzicht van al je Bounties.</p>
     <div class="container">
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Voeg Bounty toe</button>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Vul de Bounty's gegevens in.</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="userEmail">Locatie</label>
+                <input type="text" class="form-control" name="location" value="" value.bind="location" required>
+                <span class="help-block">Vul de locatie van de Bounty in.</span>
+              </div>
+                  <div class="form-group">
+                    <label for="password">Omschrijving</label>
+                    <input type="text" class="form-control" name="description" value="" value.bind="description" required>
+                    <span class="help-block">vul de omschrijving in van de Bounty.</span>
+                  </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default"  data-dismiss="modal">Annuleren</button>
+              <button type="button" class="btn btn-default" click.delegate="addBounty()" data-dismiss="modal">Toevoegen</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
     </div>
     <table class="table">
       <thead>
@@ -33,4 +64,5 @@
       </tbody>
     </table>
   </div>
+</div>
 </template>
