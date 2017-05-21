@@ -10,14 +10,21 @@ namespace KillerApp.enitities
     public int ID;
     public string location;
     public string description;
-    public int progress;
+    public string progress;
 
     public Bounty(int ID, string location, string description, int progress)
     {
       this.ID = ID;
       this.location = location;
       this.description = description;
-      this.progress = progress;
+      if (progress == 1)
+      {
+        this.progress = "Compleet";
+      }
+      else
+      {
+        this.progress = "Incompleet";
+      }
     }
   }
 }

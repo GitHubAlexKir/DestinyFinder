@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KillerApp.Repositories.UserRepo
+namespace KillerApp.Repositories.QuestRepo
 {
     public class QuestRepo : IQuestRepo
     {

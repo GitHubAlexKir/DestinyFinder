@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace KillerApp.Repositories.UserRepo
+namespace KillerApp.Repositories.QuestRepo
 {
     interface IQuestRepo
     {

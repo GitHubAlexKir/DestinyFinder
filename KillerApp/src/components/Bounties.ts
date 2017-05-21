@@ -21,7 +21,14 @@ export class Bounties {
                 console.log(data);
                 this.playerBounties = data;
             });
-    }
+   }
+   changeProgress(bounty) {
+       console.log(bounty)
+       this.http.fetch('Bounty/setBounty', {
+           body: json(bounty)
+       });
+       this.bounties();
+   }
 }
 
 export class Player {

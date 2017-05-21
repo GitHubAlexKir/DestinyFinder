@@ -13,12 +13,10 @@ namespace KillerApp.Controllers
   public class PlayerController : Controller
   {
     private IPlayerRepo playerRepo;
-    private IQuestRepo questRepo;
 
     public PlayerController()
     {
       playerRepo = new PlayerRepo();
-      questRepo = new QuestRepo();
     }
     //[FromBody] Player player
     [HttpPost]
@@ -41,22 +39,6 @@ namespace KillerApp.Controllers
     {
       int ID = user.ID;
       return Json(playerRepo.getPlayer(ID));
-    }
-    [HttpPost]
-    public void setQuestRequirement([FromBody] dynamic quest)
-    {
-      int ID = quest.ID;
-      string progressName = quest.progress;
-      int progress;
-      if (progressName == "Compleet")
-      {
-        progress = 0;
-      }
-      else
-      {
-        progress = 1;
-      }
-      questRepo.setQuestRequirement(ID, progress);
     }
   }
 }

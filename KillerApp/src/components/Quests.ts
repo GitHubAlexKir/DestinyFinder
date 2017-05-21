@@ -25,7 +25,7 @@ export class Quest {
 
     changeProgress(quest) {
         this.selectedQuest = new selectedQuest(quest.id, quest.progress);
-        this.http.fetch('Player/setQuestRequirement', {
+        this.http.fetch('Quest/setQuestRequirement', {
             body: json(this.selectedQuest)
         });
         this.quests();
