@@ -8,6 +8,7 @@ import * as jwt_decode from 'jwt-decode';
 export class Quest {
     player;
     playerQuests;
+    selectedQuest;
     constructor(private auth: AuthService, private http: HttpClient) {
         this.quests();
     }
@@ -18,9 +19,16 @@ export class Quest {
             body: json(this.player)
         }).then(response => response.json())
             .then(data => {
-                console.log(data);
                 this.playerQuests = data;
             });
+    }
+
+    changeProgress(quest) {
+        this.selectedQuest = new selectedQuest(quest.id, quest.progress);
+        this.http.fetch('Player/setQuestRequirement', {
+            body: json(this.selectedQuest)
+        });
+        this.quests();
     }
 }
 
@@ -28,5 +36,14 @@ export class Player {
     ID: string;
     constructor(ID: string) {
         this.ID = ID;
+    }
+}
+
+export class selectedQuest {
+    ID: string;
+    progress: string;
+    constructor(ID: string, progress: string) {
+        this.ID = ID;
+        this.progress = progress;
     }
 }

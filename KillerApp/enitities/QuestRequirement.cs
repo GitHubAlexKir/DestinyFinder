@@ -8,7 +8,7 @@ namespace KillerApp.enitities
     public class QuestRequirement
     {
        public int ID;
-       public bool progress;
+       public string progress;
        public string description;
 
        public QuestRequirement(int ID, int progress, string description)
@@ -16,11 +16,11 @@ namespace KillerApp.enitities
          this.ID = ID;
       if (progress == 1)
       {
-        this.progress = true;
+        this.progress = "Compleet";
       }
       else
       {
-        this.progress = false;
+        this.progress = "Incompleet";
       }
          this.description = description;
        }

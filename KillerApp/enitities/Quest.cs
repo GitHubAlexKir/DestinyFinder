@@ -28,7 +28,7 @@ namespace KillerApp.enitities
       int completed = 0;
       foreach (QuestRequirement item in requirements)
       {
-        if (item.progress)
+        if (item.progress == "Compleet")
         {
           completed++;
         }

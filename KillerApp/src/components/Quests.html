@@ -3,8 +3,8 @@
     <h2>Quests.</h2>
     <p>Hier ziet u een overzicht van al je quests.</p>
     <div class="container">
-    </div>
-    <table class="table">
+    
+    <!--<table class="table">
       <thead>
         <tr>
           <th>Naam</th>
@@ -24,13 +24,29 @@
           <td class="col-md-2">
             ${quest.progress}
           </td>
-          <td class="col-md-2">
-            <button type="button" class="btn btn-default btn-sm">
+          <td class="col-md-2" repeat.for="requirement of quest.requirements">
+            <button type="button" class="btn btn-default btn-sm" click.delegate="completed()">
               <span class="glyphicon glyphicon-ok"></span> Voltooien
             </button>
           </td>
         </tr>
       </tbody>
-    </table>
-  </div>
+    </table>-->
+  <div class="row" repeat.for="quest of playerQuests.quests">
+    <div class="col">
+      <b>${quest.description} ${quest.progress}</b>
+        <div class="col" repeat.for="requirement of quest.requirements">
+          ${requirement.description}
+          <b> ${requirement.progress}</b>
+          <button type="button" class="btn btn-default btn-sm" click.delegate="changeProgress(requirement)">
+            <span class="glyphicon glyphicon-ok"></span> Voltooien
+          </button>
+          <button type="button" class="btn btn-default btn-sm" click.delegate="changeProgress(requirement)">
+            <span class="glyphicon glyphicon-remove"></span> Onvoltooien
+          </button>
+        </div>
+      </div>
+    </div>
+    </div>
+    </div>
 </template>
