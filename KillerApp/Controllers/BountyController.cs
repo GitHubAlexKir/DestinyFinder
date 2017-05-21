@@ -43,5 +43,12 @@ namespace KillerApp.Controllers
       string location = bounty.location;
       bountyRepo.addBounty(location, description, userID);
     }
+
+    [HttpPost]
+    public void deleteBounty([FromBody] dynamic bounty)
+    {
+      int ID = bounty.id;
+      bountyRepo.deleteBounty(ID);
+    }
   }
 }

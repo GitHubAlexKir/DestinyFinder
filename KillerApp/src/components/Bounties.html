@@ -3,12 +3,9 @@
     <h2>Bounties.</h2>
     <p>Hier ziet u een overzicht van al je Bounties.</p>
     <div class="container">
-      <!-- Trigger the modal with a button -->
       <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Voeg Bounty toe</button>
-      <!-- Modal -->
       <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
-          <!-- Modal content-->
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -58,6 +55,9 @@
           <td class="col-md-2">
             <button type="button" class="btn btn-default btn-sm" click.delegate="changeProgress(bounty)">
               <span class="glyphicon glyphicon-ok"></span> Voltooien/Onvoltooien
+            </button>
+            <button type="button" class="btn btn-default btn-sm" click.delegate="deleteBounty(bounty)">
+              <span class="glyphicon glyphicon-remove"></span> verwijderen
             </button>
           </td>
         </tr>

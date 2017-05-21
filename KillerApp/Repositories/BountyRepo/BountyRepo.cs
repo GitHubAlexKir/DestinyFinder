@@ -36,5 +36,13 @@ namespace KillerApp.Repositories.BountyRepo
       connection.disConnect();
     }
 
+    public void deleteBounty(int ID)
+    {
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("DELETE FROM Bounty WHERE ID = @ID;", connection.getConnection());
+      sqlCommand.Parameters.AddWithValue("@ID", ID);
+      sqlCommand.ExecuteNonQuery();
+      connection.disConnect();
+    }
   }
 }

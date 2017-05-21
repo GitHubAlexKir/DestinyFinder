@@ -21,24 +21,27 @@ export class Bounties {
             body: json(this.player)
         }).then(response => response.json())
             .then(data => {
-                console.log(data);
                 this.playerBounties = data;
             });
    }
 
    changeProgress(bounty) {
-       console.log(bounty)
        this.http.fetch('Bounty/setBounty', {
            body: json(bounty)
        });
        this.bounties();
    }
    addBounty() {
-       console.log(this.location);
-       console.log(this.description);
        this.newbounty = new newBounty(this.location, this.description, this.player.ID);
        this.http.fetch('Bounty/addBounty', {
            body: json(this.newbounty)
+       });
+       this.bounties();
+   }
+
+   deleteBounty(bounty) {
+       this.http.fetch('Bounty/deleteBounty', {
+           body: json(bounty)
        });
        this.bounties();
    }

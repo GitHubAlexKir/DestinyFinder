@@ -9,5 +9,6 @@ namespace KillerApp.Repositories.BountyRepo
     {
     void setBounty(int ID, int progress);
     void addBounty(string location, string description, int userID);
+    void deleteBounty(int ID);
   }
 }
