@@ -3,34 +3,68 @@
     <h2>Wapens.</h2>
     <p>Hier ziet u een overzicht van al je wapens.</p>
     <div class="container">
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Voeg Wapen toe</button>
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Vul de Wapen's gegevens in.</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="name">naam</label>
+                <input type="text" class="form-control" name="name" value="" value.bind="name" required>
+                <span class="help-block">Vul de naam in van de Wapen in.</span>
+              </div>
+              <div class="form-group">
+                <label for="damage">damage</label>
+                <input type="number" class="form-control" name="damage" value="" value.bind="damage" required>
+                <span class="help-block">vul de damage in van de Wapen.</span>
+              </div>
+              <div class="form-group">
+                <label for="password">minlevel</label>
+                <input type="number" class="form-control" name="minlevel" value="" value.bind="minlevel" required>
+                <span class="help-block">vul de minimale level in van de Bounty.</span>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>
+                <button type="button" class="btn btn-default" click.delegate="addWeapon()" data-dismiss="modal">Toevoegen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Naam</th>
+            <th>Damage</th>
+            <th>Minimale level</th>
+            <th>opties</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="weapon of weaponsplayer.weapons">
+            <td class="col-md-4">
+              ${weapon.name}
+            </td>
+            <td class="col-md-4">
+              ${weapon.damage}
+            </td>
+            <td class="col-md-4">
+              ${weapon.minLevel}
+            </td>
+            <td class="col-md-4">
+              <button type="button" class="btn btn-default btn-sm" click.delegate="deleteWeapon(weapon)">
+                <span class="glyphicon glyphicon-remove"></span> verwijderen
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Naam</th>
-          <th>Damage</th>
-          <th>Minimale level</th>
-          <th>opties</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr repeat.for="weapon of weaponsplayer.weapons">
-          <td class="col-md-4">
-            ${weapon.name} 
-          </td>
-          <td class="col-md-4">
-            ${weapon.damage} 
-          </td>
-          <td class="col-md-4">
-            ${weapon.minLevel}
-          </td>
-          <td class="col-md-4">
-            <button type="button" class="btn btn-default btn-sm">
-              <span class="glyphicon glyphicon-remove"></span> Verwijder
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+   </div>
 </template>
