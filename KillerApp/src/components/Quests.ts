@@ -9,6 +9,11 @@ export class Quest {
     player;
     playerQuests;
     selectedQuest;
+    name;
+    description;
+    requirements = [];
+    requirement;
+    newQuest;
     constructor(private auth: AuthService, private http: HttpClient) {
         this.quests();
     }
@@ -30,6 +35,18 @@ export class Quest {
         });
         this.quests();
     }
+    addRequirement() {
+        this.requirement = new requirement(this.description);
+        this.requirements.push(this.requirement);
+    }
+    addQuest() {
+        this.newQuest = new newQuest(this.requirements, this.name, this.player.ID);
+        console.log(this.newQuest);
+        this.http.fetch('Quest/addQuest', {
+            body: json(this.newQuest)
+        });
+        this.quests();
+    }
 }
 
 export class Player {
@@ -45,5 +62,25 @@ export class selectedQuest {
     constructor(ID: string, progress: string) {
         this.ID = ID;
         this.progress = progress;
+    }
+}
+
+export class requirement {
+    description: string;
+    constructor(description: string)
+    {
+        this.description = description;
+    }
+}
+
+export class newQuest {
+    requirements;
+    description;
+    ID;
+    constructor(requirements, name, userID)
+    {
+        this.requirements = requirements;
+        this.description= name;
+        this.ID = userID;
     }
 }

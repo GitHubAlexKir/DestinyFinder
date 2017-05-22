@@ -40,11 +40,29 @@ export class Bounties {
    }
 
    deleteBounty(bounty) {
-       this.http.fetch('Bounty/deleteBounty', {
-           body: json(bounty)
+       swal({
+           title: 'Weet u het zeker?',
+           type: 'warning',
+           showCancelButton: true,
+           confirmButtonText: 'Ja verwijder deze Bounty',
+           cancelButtonText: 'Stop',
+       }, (isOk) => {
+           if (isOk) {
+               this.http.fetch('Bounty/deleteBounty', {
+                   body: json(bounty)
+               });
+               this.bounties();
+               swal({
+                   title: 'Verwijderd',
+                   text: 'Bounty is succesvol verwijderd',
+                   type: 'success',
+                   showConfirmButton: false,
+                   timer: 3000
+               });
+           }
        });
-       this.bounties();
    }
+   
 }
 
 export class Player {

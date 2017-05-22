@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using KillerApp.Repositories.QuestRepo;
+using KillerApp.enitities;
 
 namespace KillerApp.Controllers
 {
@@ -33,6 +34,18 @@ namespace KillerApp.Controllers
         progress = 1;
       }
       questRepo.setQuestRequirement(ID, progress);
+    }
+    [HttpPost]
+    public void addQuest([FromBody] Quest quest)
+    {
+      int userID = quest.ID;
+      string description = quest.description;
+      List<string> requirements = new List<string>();
+      foreach (var item in quest.requirements)
+      {
+        requirements.Add(item.description);
+      }
+      questRepo.addQuest(userID, description, requirements);
     }
   }
 }

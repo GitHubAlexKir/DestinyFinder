@@ -35,10 +35,28 @@ export class Weapons {
     }
 
     deleteWeapon(weapon) {
-        this.http.fetch('Weapon/deleteWeapon', {
-            body: json(weapon)
+        swal({
+            title: 'Weet u het zeker?',
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ja verwijder deze wapen',
+            cancelButtonText: 'Stop',
+        }, (isOk) => {
+            if (isOk) {
+                this.http.fetch('Weapon/deleteWeapon', {
+                    body: json(weapon)
+                });
+                this.weapons();
+                swal({
+                    title: 'Verwijderd',
+                    text: 'Wapen is succesvol verwijderd',
+                    type: 'success',
+                    showConfirmButton: false,
+                    timer: 3000
+                });
+            }
         });
-        this.weapons();
+        
     }
 }
 

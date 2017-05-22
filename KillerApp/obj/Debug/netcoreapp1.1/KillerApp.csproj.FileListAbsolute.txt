@@ -43,3 +43,12 @@ D:\Gebruiker\Documenten\Visual Studio 2017\Projects\KillerApp\KillerApp\obj\Debu
 D:\Gebruiker\Documenten\Visual Studio 2017\Projects\KillerApp\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.pdb
 D:\Gebruiker\Documenten\Visual Studio 2017\Projects\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.dll
 D:\Gebruiker\Documenten\Visual Studio 2017\Projects\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.pdb
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.deps.json
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.runtimeconfig.json
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.runtimeconfig.dev.json
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.dll
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\bin\Debug\netcoreapp1.1\KillerApp.pdb
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.AssemblyInfo.cs
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.dll
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\obj\Debug\netcoreapp1.1\KillerApp.pdb

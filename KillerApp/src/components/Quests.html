@@ -3,47 +3,49 @@
     <h2>Quests.</h2>
     <p>Hier ziet u een overzicht van al je quests.</p>
     <div class="container">
-    
-    <!--<table class="table">
-      <thead>
-        <tr>
-          <th>Naam</th>
-          <th>requirement(s)</th>
-          <th>voortgang</th>
-          <th>opties</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr repeat.for="quest of playerQuests.quests">
-          <td class="col-md-2">
-            ${quest.description}
-          </td>
-            <td class="col-md-8" repeat.for="requirement of quest.requirements">
+      <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Voeg Quest toe</button>
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Vul de Quest's gegevens in.</h4>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label for="name">Naam</label>
+                <input type="text" class="form-control" name="name" value="" value.bind="name" required>
+                <span class="help-block">Vul de naam van de Quest in.</span>
+              </div>
+              <div class="form-group">
+                <h4>Vul de QuestRequirement's gegevens in.</h4>
+                <label for="password">Omschrijving</label>
+                <input type="text" class="form-control" name="description" value="" value.bind="description" required>
+                <span class="help-block">Vul de omschrijving in van de Requirement.</span>
+                <button type="button" class="btn btn-default" click.delegate="addRequirement()">Voeg requirement toe.</button>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>
+                <button type="button" class="btn btn-default" click.delegate="addQuest()" data-dismiss="modal">Toevoegen</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row" repeat.for="quest of playerQuests.quests">
+          <div class="col">
+            <b>${quest.description} ${quest.progress}</b>
+            <div class="col" repeat.for="requirement of quest.requirements">
               ${requirement.description}
-          </td>
-          <td class="col-md-2">
-            ${quest.progress}
-          </td>
-          <td class="col-md-2" repeat.for="requirement of quest.requirements">
-            <button type="button" class="btn btn-default btn-sm" click.delegate="completed()">
-              <span class="glyphicon glyphicon-ok"></span> Voltooien
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>-->
-  <div class="row" repeat.for="quest of playerQuests.quests">
-    <div class="col">
-      <b>${quest.description} ${quest.progress}</b>
-        <div class="col" repeat.for="requirement of quest.requirements">
-          ${requirement.description}
-          <b> ${requirement.progress}</b>
-          <button type="button" class="btn btn-default btn-sm" click.delegate="changeProgress(requirement)">
-            <span class="glyphicon glyphicon-ok"></span> Voltooien/Onvoltooien
-          </button>
+              <b> ${requirement.progress}</b>
+              <button type="button" class="btn btn-default btn-sm" click.delegate="changeProgress(requirement)">
+                <span class="glyphicon glyphicon-ok"></span> Voltooien/Onvoltooien
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    </div>
-    </div>
+  </div>
 </template>
