@@ -9,11 +9,17 @@ export class Character {
     player;
     playerstats;
     playerurl = "/Images/Warlock.png";
+    updatedPlayer;
+    className;
+    HP;
+    level;
+    XP;
+
     constructor(private auth: AuthService, private http: HttpClient) {
-        this.weapons();
+        this.stats();
     }
 
-    weapons() {
+    stats() {
         this.player = new Player(jwt_decode(this.auth.getAccessToken()).userid);
         return this.http.fetch('Player/get', {
             body: json(this.player)
@@ -38,6 +44,14 @@ export class Character {
             default:
         }
     }
+
+    updatePlayer() {
+        this.updatedPlayer = new UpdatePlayer(this.player.ID, this.className, this.HP, this.level, this.XP);
+        this.http.fetch('Player/update', {
+            body: json(this.updatedPlayer)
+        });
+        this.stats();
+    }
 }
 
 export class Player {
@@ -46,3 +60,20 @@ export class Player {
         this.ID = ID;
     }
 }
+
+export class UpdatePlayer {
+    ID: string;
+    className: string;
+    HP;
+    level;
+    XP;
+
+    constructor(ID: string, className,HP,level,XP) {
+        this.ID = ID;
+        this.className = className;
+        this.HP = HP;
+        this.level = level;
+        this.XP = XP;
+    }
+}
+

@@ -12,5 +12,6 @@ namespace KillerApp.Repositories.UserRepo
         bool register(string name, string pass, string classname);
         Player getPlayer(int ID);
     string getID(string name);
+    Player updatePlayer(int iD, int classID, int hP, int level, int xP);
   }
 }

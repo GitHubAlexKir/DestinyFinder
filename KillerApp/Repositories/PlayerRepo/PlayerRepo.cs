@@ -37,8 +37,6 @@ namespace KillerApp.Repositories.UserRepo
                }
            }
             connection.disConnect();
-       
-      
        if (passwordDatabase == passwordFilledIn)
        {
            login = true;
@@ -197,7 +195,6 @@ namespace KillerApp.Repositories.UserRepo
       List<Bounty> bounties = new List<Bounty>();
       connection.Connect();
       SqlCommand sqlCommand = new SqlCommand("select * from Bounty where SpelerID= @ID;", connection.getConnection());
-
       sqlCommand.Parameters.AddWithValue("@ID", ID);
       SqlDataReader reader = sqlCommand.ExecuteReader();
       if (reader.HasRows)
@@ -227,13 +224,10 @@ namespace KillerApp.Repositories.UserRepo
     {
       connection.Connect();
       SqlCommand sqlCommand = new SqlCommand("update speler set classID = @ClassID where id = @ID", connection.getConnection());
-
       sqlCommand.Parameters.AddWithValue("@ID", player.ID);
       sqlCommand.Parameters.AddWithValue("@ClassID", player.classID);
-
       sqlCommand.ExecuteNonQuery();
       connection.disConnect();
-
       connection.Connect();
       sqlCommand = new SqlCommand("update statistiek set HP = @HP, playerlevel = @level, XPNextLevel = @XP where spelerid = @spelerID", connection.getConnection());
       sqlCommand.Parameters.AddWithValue("@spelerID", player.ID);
@@ -242,6 +236,25 @@ namespace KillerApp.Repositories.UserRepo
       sqlCommand.Parameters.AddWithValue("@XP", player.XPNextLevel);
       sqlCommand.ExecuteNonQuery();
       connection.disConnect();
+    }
+
+    public Player updatePlayer(int iD, int classID, int HP, int level, int XP)
+    {
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("update speler set classID = @ClassID where id = @ID", connection.getConnection());
+      sqlCommand.Parameters.AddWithValue("@ID", iD);
+      sqlCommand.Parameters.AddWithValue("@ClassID", classID);
+      sqlCommand.ExecuteNonQuery();
+      connection.disConnect();
+      connection.Connect();
+      sqlCommand = new SqlCommand("update statistiek set HP = @HP, playerlevel = @level, XPNextLevel = @XP where spelerid = @spelerID", connection.getConnection());
+      sqlCommand.Parameters.AddWithValue("@spelerID", iD);
+      sqlCommand.Parameters.AddWithValue("@HP", HP);
+      sqlCommand.Parameters.AddWithValue("@Level", level);
+      sqlCommand.Parameters.AddWithValue("@XP", XP);
+      sqlCommand.ExecuteNonQuery();
+      connection.disConnect();
+      return getPlayer(iD);
     }
   }
 }
