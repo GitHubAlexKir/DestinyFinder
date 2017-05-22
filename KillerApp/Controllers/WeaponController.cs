@@ -34,5 +34,15 @@ namespace KillerApp.Controllers
       int ID = weapon.id;
       weaponRepo.deleteWeapon(ID);
     }
+
+    [HttpPost]
+    public void editWeapon([FromBody] dynamic weapon)
+    {
+      string name = weapon.name;
+      int damage = weapon.damage;
+      int minlevel = weapon.minlevel;
+      int weaponID = weapon.ID;
+      weaponRepo.editWeapon(name, damage, minlevel, weaponID);
+    }
   }
 }

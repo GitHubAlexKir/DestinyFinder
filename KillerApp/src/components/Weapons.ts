@@ -12,6 +12,7 @@ export class Weapons {
     damage;
     minlevel;
     newWeapon;
+    editweapon;
     constructor(private auth: AuthService, private http: HttpClient) {
         this.weapons();
     }
@@ -30,6 +31,16 @@ export class Weapons {
         this.newWeapon = new newWeapon(this.name, this.damage, this.minlevel,this.player.ID);
         this.http.fetch('Weapon/addWeapon', {
             body: json(this.newWeapon)
+        });
+        this.weapons();
+    }
+
+    editWeapon(weapon) {
+        
+        this.editweapon = new editWeapon(this.name, this.damage, this.minlevel, weapon.id);
+        console.log(this.editweapon);
+        this.http.fetch('Weapon/editWeapon', {
+            body: json(this.editweapon)
         });
         this.weapons();
     }
@@ -77,5 +88,18 @@ export class newWeapon {
         this.damage = damage;
         this.minlevel = minlevel;
         this.playerID = playerID;
+    }
+}
+
+export class editWeapon {
+    name: string;
+    damage;
+    minlevel;
+    ID;
+    constructor(name: string, damage, minlevel,ID) {
+        this.name = name;
+        this.damage = damage;
+        this.minlevel = minlevel;
+        this.ID = ID;
     }
 }

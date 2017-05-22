@@ -35,5 +35,17 @@ namespace KillerApp.Repositories.WeaponRepo
       sqlCommand.ExecuteNonQuery();
       connection.disConnect();
     }
+
+    public void editWeapon(string name, int damage, int minlevel, int weaponID)
+    {
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("UPDATE wapen SET naam = @naam, damage = @damage, minlevel = @minlevel WHERE ID = @ID;", connection.getConnection());
+      sqlCommand.Parameters.AddWithValue("@ID", weaponID);
+      sqlCommand.Parameters.AddWithValue("@naam", name);
+      sqlCommand.Parameters.AddWithValue("@damage", damage);
+      sqlCommand.Parameters.AddWithValue("@minlevel", minlevel);
+      sqlCommand.ExecuteNonQuery();
+      connection.disConnect();
+    }
   }
 }
