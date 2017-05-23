@@ -256,5 +256,15 @@ namespace KillerApp.Repositories.UserRepo
       connection.disConnect();
       return getPlayer(iD);
     }
+
+    public bool Fight(int challenger, int opponent, int weaponID)
+    {
+      return true;
+    }
+
+    public string getRewards(int challenger)
+    {
+      return "test";
+    }
   }
 }

@@ -62,5 +62,21 @@ namespace KillerApp.Controllers
       }
       playerRepo.updatePlayer(ID, classID, HP, level, XP);
     }
+    [HttpPost]
+    public JsonResult fight([FromBody] dynamic fight)
+    {
+      int challenger = fight.userOne;
+      int opponent = fight.userTwo;
+      int weaponID = fight.weapon;
+      bool fightResult = playerRepo.Fight(challenger,opponent,weaponID);
+      if (fightResult)
+      {
+        return Json(playerRepo.getRewards(challenger));
+      }
+      else
+      {
+        return Json("Lost");
+      }
+    }
   }
 }
