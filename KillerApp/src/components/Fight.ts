@@ -33,12 +33,13 @@ export class Fight {
         }).then(response => response.json())
             .then(data => {
                 this.players = data;
+                this.opponent = this.players[0];
+                this.setImage();
             });
     }
     select(player) {
         console.log(player);
         this.selectedID = player.id;
-        console.log(this.selectedID);
         this.opponent = player;
         this.setImage();
     }
@@ -52,8 +53,8 @@ export class Fight {
                     swal({
                         title: "U heeft gewonnen!",
                         type: "success",
-                        showCancelButton: true,
-                        showConfirmButton: false,
+                        showCancelButton: false,
+                        showConfirmButton: true,
                         closeOnConfirm: true
                     });
                 }
@@ -61,8 +62,8 @@ export class Fight {
                     swal({
                         title: "U heeft verloren!",
                         type: "warning",
-                        showCancelButton: true,
-                        showConfirmButton: false,
+                        showCancelButton: false,
+                        showConfirmButton: true,
                         closeOnConfirm: true
                     });
                 }

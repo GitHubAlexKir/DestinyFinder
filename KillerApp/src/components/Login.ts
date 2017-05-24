@@ -43,12 +43,4 @@ export class Login {
                 });
             });
     }
-
-    logout() {
-        this.auth.logout('');
-    }
-
-    async test() {
-
-    }
 } 

@@ -2,6 +2,8 @@
 import { autoinject } from "aurelia-framework"
 import { HttpClient, json } from "aurelia-fetch-client"
 import { AuthService } from "aurelia-authentication"
+import { EventAggregator } from 'aurelia-event-aggregator';
+import { Router } from 'aurelia-router'
 
 @autoinject
 export class Register {
@@ -11,7 +13,7 @@ export class Register {
     classID = "";
     player;
 
-    constructor(private auth: AuthService, private http: HttpClient) {
+    constructor(private auth: AuthService, private http: HttpClient, private event: EventAggregator, private router: Router) {
     }
 
     register() {
@@ -31,6 +33,7 @@ export class Register {
             }).then(response => response.json())
                 .then(data => {
                     if (data) {
+                        this.login();
                         swal({
                             title: "U bent succesvol geregistreerd",
                             type: "success",
@@ -52,34 +55,20 @@ export class Register {
                     }
                 });
             }
-        }
+    }
+
+    login() {
+        this.auth.login({
+            name: this.name,
+            password: this.password
+        }).then(response => {
+            this.event.publish('signedIn', true);
+            this.router.navigate("Character");
+
+        });
+    }
 
 }
-
-   // login() {
-   //     this.auth.login({
-   //         name: this.name,
-   //         password: this.password
-   //     }).then(response => {
-   //         swal({
-   //             title: "U bent succesvol ingelogd",
-   //             type: "success",
-   //             showCancelButton: true,
-   //             showConfirmButton: false,
-   //             closeOnConfirm: true
-   //         });
-   //     })
-   //         .catch(err => {
-   //             swal({
-   //                 title: "Inloggegevens zijn onjuist",
-   //                 type: "warning",
-   //                 showCancelButton: true,
-   //                 showConfirmButton: false,
-   //                 closeOnConfirm: true
-   //             });
-   //         });
-   // }
-
 
 export class Player{
     name: string;
