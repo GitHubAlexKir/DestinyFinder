@@ -10,7 +10,6 @@ export class Register {
     passwordConfirm = "";
     classID = "";
     player;
-    response;
 
     constructor(private auth: AuthService, private http: HttpClient) {
     }
@@ -31,30 +30,31 @@ export class Register {
                 body: json(this.player)
             }).then(response => response.json())
                 .then(data => {
-                this.response = data,
-                console.log(this.response);
-                });
-            if (this.response == 'false') {
-                swal({
-                    title: "U bent succesvol geregistreerd",
-                    type: "success",
-                    showCancelButton: true,
-                    showConfirmButton: false,
-                    closeOnConfirm: true
-                });
-            }
-            if (this.response == 'true') {
-                swal({
-                    title: "Naam is al bezet",
-                    type: "warning",
-                    showCancelButton: true,
-                    showConfirmButton: false,
-                    closeOnConfirm: true
+                    if (data) {
+                        swal({
+                            title: "U bent succesvol geregistreerd",
+                            type: "success",
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            closeOnConfirm: false,
+                            timer: 1000
+                        });
+                    }
+                    else {
+                        swal({
+                            title: "Naam is al bezet",
+                            type: "warning",
+                            showCancelButton: false,
+                            showConfirmButton: false,
+                            closeOnConfirm: false,
+                            timer: 1000
+                        });
+                    }
                 });
             }
         }
 
-    }
+}
 
    // login() {
    //     this.auth.login({
@@ -79,7 +79,7 @@ export class Register {
    //             });
    //         });
    // }
-}
+
 
 export class Player{
     name: string;

@@ -279,7 +279,7 @@ namespace KillerApp.Repositories.UserRepo
 
     public bool Fight(int challenger, int opponent, int weaponID)
     {
-      return true;
+      return false;
     }
 
     public string getRewards(int challenger)

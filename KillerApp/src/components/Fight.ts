@@ -8,13 +8,23 @@ import * as jwt_decode from 'jwt-decode';
 export class Fight {
     players;
     player;
+    opponent;
     selectedID;
     weapon;
     apponement;
     playerurl;
-
+    result: boolean;
     constructor(private auth: AuthService, private http: HttpClient) {
         this.getPlayers();
+        this.getPlayer();
+    }
+    getPlayer() {
+        this.http.fetch('Player/get', {
+            body: json(jwt_decode(this.auth.getAccessToken()).userid)
+        }).then(response => response.json())
+            .then(data => {
+                this.player = data;
+            });
     }
 
     getPlayers() {
@@ -29,11 +39,39 @@ export class Fight {
         console.log(player);
         this.selectedID = player.id;
         console.log(this.selectedID);
-        this.player = player;
+        this.opponent = player;
         this.setImage();
     }
+
+    fight() {
+        this.http.fetch('Player/fight', {
+            body: json(new fight(this.player.id, this.opponent.id, this.weapon.id))
+        }).then(response => response.json())
+            .then(data => {
+                if (data) {
+                    swal({
+                        title: "U heeft gewonnen!",
+                        type: "success",
+                        showCancelButton: true,
+                        showConfirmButton: false,
+                        closeOnConfirm: true
+                    });
+                }
+                else {
+                    swal({
+                        title: "U heeft verloren!",
+                        type: "warning",
+                        showCancelButton: true,
+                        showConfirmButton: false,
+                        closeOnConfirm: true
+                    });
+                }
+            });
+        
+    }
+
     setImage() {
-        switch (this.player.classID) {
+        switch (this.opponent.classID) {
             case 1:
                 this.playerurl = "/images/hunter.png";
                 break;
@@ -45,5 +83,17 @@ export class Fight {
                 break;
             default:
         }
+    }
+}
+
+export class fight {
+    player;
+    opponement;
+    weapon;
+    constructor(player, opponement, weapon)
+    {
+        this.player = player;
+        this.opponement = opponement;
+        this.weapon = weapon;
     }
 }

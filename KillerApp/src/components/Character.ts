@@ -6,7 +6,6 @@ import * as jwt_decode from 'jwt-decode';
 
 @autoinject
 export class Character {
-    player;
     playerstats;
     playerurl = "/Images/Warlock.png";
     updatedPlayer;
@@ -20,9 +19,8 @@ export class Character {
     }
 
     stats() {
-        this.player = new Player(jwt_decode(this.auth.getAccessToken()).userid);
-        return this.http.fetch('Player/get', {
-            body: json(this.player)
+        this.http.fetch('Player/get', {
+            body: json(jwt_decode(this.auth.getAccessToken()).userid)
         }).then(response => response.json())
             .then(data => {
                 console.log(data);
@@ -46,7 +44,7 @@ export class Character {
     }
 
     updatePlayer() {
-        this.updatedPlayer = new UpdatePlayer(this.player.ID, this.className, this.HP, this.level, this.XP);
+        this.updatedPlayer = new UpdatePlayer(this.playerstats.ID, this.className, this.HP, this.level, this.XP);
         this.http.fetch('Player/update', {
             body: json(this.updatedPlayer)
         });
@@ -54,12 +52,6 @@ export class Character {
     }
 }
 
-export class Player {
-    ID: string;
-    constructor(ID: string) {
-        this.ID = ID;
-    }
-}
 
 export class UpdatePlayer {
     ID: string;

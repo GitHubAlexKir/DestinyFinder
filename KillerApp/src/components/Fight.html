@@ -14,13 +14,13 @@
   </div>
   <div class="col-md-6">
     <h2 class="glyphicon glyphicon-user">
-      ${player.name}
+      ${opponent.name}
     </h2>
-    <h4>${player.classname}</h4>
+    <h4>${opponent.classname}</h4>
     <p>
-      <h4 class="glyphicon glyphicon-fire"><b> Level: </b>${player.level}</h4>
+      <h4 class="glyphicon glyphicon-fire"><b> Level: </b>${opponent.level}</h4>
       <br />
-      <h4 class="glyphicon glyphicon-heart"><b> HP: </b>${player.hp}</h4>
+      <h4 class="glyphicon glyphicon-heart"><b> HP: </b>${opponent.hp}</h4>
       </p>
     </div>
   <div class="container">
@@ -35,12 +35,14 @@
           <div class="modal-body">
             <div class="form-group">
               <label for="userWeapon">Wapen</label>
-              <input type="text" class="form-control" name="userWeapon" value.bind="selectedWeapon" required>
+              <select id="userWeapon"value.bind="weapon"  name="userWeapon" class="form-control" required>
+                <option repeat.for="weapon of player.weapons" model.bind="weapon">${weapon.name} <b>damage:</b> ${weapon.damage}</option>
+              </select>
               <span class="help-block">Kies een van je wapens.</span>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>
-              <button type="button" class="btn btn-default" click.delegate="addBounty()" data-dismiss="modal">Vechten</button>
+              <button type="button" class="btn btn-default" click.delegate="fight()" data-dismiss="modal">Vechten</button>
             </div>
           </div>
         </div>

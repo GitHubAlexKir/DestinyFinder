@@ -6,7 +6,6 @@ import * as jwt_decode from 'jwt-decode';
 
 @autoinject
 export class Bounties {
-    player;
     playerBounties;
     location;
     description;
@@ -16,10 +15,9 @@ export class Bounties {
     }
 
    bounties() {
-        this.player = new Player(jwt_decode(this.auth.getAccessToken()).userid);
-        this.http.fetch('Player/get', {
-            body: json(this.player)
-        }).then(response => response.json())
+       this.http.fetch('Player/get', {
+           body: json(jwt_decode(this.auth.getAccessToken()).userid)
+       }).then(response => response.json())
             .then(data => {
                 this.playerBounties = data;
             });
@@ -32,7 +30,7 @@ export class Bounties {
        this.bounties();
    }
    addBounty() {
-       this.newbounty = new newBounty(this.location, this.description, this.player.ID);
+       this.newbounty = new newBounty(this.location, this.description, this.playerBounties.ID);
        this.http.fetch('Bounty/addBounty', {
            body: json(this.newbounty)
        });
@@ -65,12 +63,6 @@ export class Bounties {
    
 }
 
-export class Player {
-    ID: string;
-    constructor(ID: string) {
-        this.ID = ID;
-    }
-}
 
 export class newBounty {
     location: string;

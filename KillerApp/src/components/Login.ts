@@ -23,9 +23,10 @@ export class Login {
             swal({
                 title: "U bent succesvol ingelogd",
                 type: "success",
-                showCancelButton: true,
+                showCancelButton: false,
                 showConfirmButton: false,
-                closeOnConfirm: true
+                closeOnConfirm: false,
+                timer: 1000
             });
 
             this.router.navigate("Character");
@@ -35,9 +36,10 @@ export class Login {
                 swal({
                     title: "Inloggegevens zijn onjuist",
                     type: "warning",
-                    showCancelButton: true,
+                    showCancelButton: false,
                     showConfirmButton: false,
-                    closeOnConfirm: true
+                    closeOnConfirm: false,
+                    timer: 1000
                 });
             });
     }

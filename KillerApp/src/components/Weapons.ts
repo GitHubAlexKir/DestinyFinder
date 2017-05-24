@@ -6,8 +6,7 @@ import * as jwt_decode from 'jwt-decode';
 
 @autoinject
 export class Weapons {
-    player;
-    weaponsplayer = [];
+    weaponsplayer;
     name;
     damage;
     minlevel;
@@ -18,9 +17,8 @@ export class Weapons {
     }
 
     weapons() {
-        this.player = new Player(jwt_decode(this.auth.getAccessToken()).userid);
-        return this.http.fetch('Player/get', {
-            body: json(this.player)
+        this.http.fetch('Player/get', {
+            body: json(jwt_decode(this.auth.getAccessToken()).userid)
         }).then(response => response.json())
             .then(data => {
                 this.weaponsplayer = data;
@@ -28,7 +26,7 @@ export class Weapons {
     }
 
     addWeapon() {
-        this.newWeapon = new newWeapon(this.name, this.damage, this.minlevel,this.player.ID);
+        this.newWeapon = new newWeapon(this.name, this.damage, this.minlevel, this.weaponsplayer.ID);
         this.http.fetch('Weapon/addWeapon', {
             body: json(this.newWeapon)
         });
@@ -51,7 +49,7 @@ export class Weapons {
             type: 'warning',
             showCancelButton: true,
             confirmButtonText: 'Ja verwijder deze wapen',
-            cancelButtonText: 'Stop',
+            cancelButtonText: 'Stop'
         }, (isOk) => {
             if (isOk) {
                 this.http.fetch('Weapon/deleteWeapon', {
@@ -63,21 +61,13 @@ export class Weapons {
                     text: 'Wapen is succesvol verwijderd',
                     type: 'success',
                     showConfirmButton: false,
-                    timer: 3000
+                    timer: 2000
                 });
             }
         });
         
     }
 }
-
-export class Player {
-    ID: string;
-    constructor(ID: string) {
-        this.ID = ID;
-    }
-}
-
 export class newWeapon {
     name: string;
     damage;

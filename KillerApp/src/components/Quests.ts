@@ -6,7 +6,6 @@ import * as jwt_decode from 'jwt-decode';
 
 @autoinject
 export class Quest {
-    player;
     playerQuests;
     selectedQuest;
     name;
@@ -19,9 +18,8 @@ export class Quest {
     }
 
     quests() {
-        this.player = new Player(jwt_decode(this.auth.getAccessToken()).userid);
-        return this.http.fetch('Player/get', {
-            body: json(this.player)
+        this.http.fetch('Player/get', {
+            body: json(jwt_decode(this.auth.getAccessToken()).userid)
         }).then(response => response.json())
             .then(data => {
                 this.playerQuests = data;
@@ -40,7 +38,7 @@ export class Quest {
         this.requirements.push(this.requirement);
     }
     addQuest() {
-        this.newQuest = new newQuest(this.requirements, this.name, this.player.ID);
+        this.newQuest = new newQuest(this.requirements, this.name, this.playerQuests.ID);
         console.log(this.newQuest);
         this.http.fetch('Quest/addQuest', {
             body: json(this.newQuest)
@@ -49,12 +47,6 @@ export class Quest {
     }
 }
 
-export class Player {
-    ID: string;
-    constructor(ID: string) {
-        this.ID = ID;
-    }
-}
 
 export class selectedQuest {
     ID: string;
