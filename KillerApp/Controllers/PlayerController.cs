@@ -40,6 +40,12 @@ namespace KillerApp.Controllers
       return Json(playerRepo.getPlayer(ID));
     }
     [HttpPost]
+    public JsonResult getPlayers([FromBody] int ID)
+    {
+      return Json(playerRepo.getPlayers(ID));
+    }
+
+    [HttpPost]
     public void update([FromBody] dynamic user)
     {
       int ID = user.ID;

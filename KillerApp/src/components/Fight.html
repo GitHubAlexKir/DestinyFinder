@@ -1,3 +1,50 @@
 ﻿<template>
-  Fight....
+  <div class="container col-md-4">
+    <ul class="list-group">
+      <li  repeat.for="player of players" class="list-group-item ${player.id === $parent.selectedID ? 'active' : ''}">
+        <a click.delegate="$parent.select(player)">
+        <h4 style="color:black;" class="list-group-item-heading">${player.name}</h4>
+          <p style="color:black;" class="list-group-item-text">Level: ${player.level}</p>
+          </a>
+        </li>
+    </ul>
+  </div>
+  <div class="col-md-2">
+    <img src="${playerurl}" alt="" class="img-rounded img-responsive" />
+  </div>
+  <div class="col-md-6">
+    <h2 class="glyphicon glyphicon-user">
+      ${player.name}
+    </h2>
+    <h4>${player.classname}</h4>
+    <p>
+      <h4 class="glyphicon glyphicon-fire"><b> Level: </b>${player.level}</h4>
+      <br />
+      <h4 class="glyphicon glyphicon-heart"><b> HP: </b>${player.hp}</h4>
+      </p>
+    </div>
+  <div class="container">
+    <button type="button" class="btn btn-info" data-toggle="modal" data-target="#Fight">Vechten</button>
+    <div class="modal fade" id="Fight" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Gevecht voorbereiden</h4>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="userWeapon">Wapen</label>
+              <input type="text" class="form-control" name="userWeapon" value.bind="selectedWeapon" required>
+              <span class="help-block">Kies een van je wapens.</span>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>
+              <button type="button" class="btn btn-default" click.delegate="addBounty()" data-dismiss="modal">Vechten</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

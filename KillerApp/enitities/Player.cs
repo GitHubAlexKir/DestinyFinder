@@ -32,8 +32,18 @@ namespace KillerApp.enitities
       this.bounties = bounties;
       this.classname = getClass();
     }
+    public Player(int ID, int classID, string name, int HP, int level, int XPNextLevel)
+    {
+      this.ID = ID;
+      this.classID = classID;
+      this.name = name;
+      this.HP = HP;
+      this.level = level;
+      this.XPNextLevel = XPNextLevel;
+      this.classname = getClass();
+    }
 
-    
+
 
     public void setClass(string className)
     {

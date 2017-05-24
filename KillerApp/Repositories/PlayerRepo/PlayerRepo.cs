@@ -122,7 +122,27 @@ namespace KillerApp.Repositories.UserRepo
       connection.disConnect();
       return player;
     }
-
+    public List<Player> getPlayers(int ID)
+    {
+      List<Player> players = new List<Player>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select * from speler spel join Statistiek stat on stat.spelerID = spel.ID where spel.ID != @ID", connection.getConnection());
+      sqlCommand.Parameters.AddWithValue("@ID", ID);
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          players.Add(
+            new Player(Convert.ToInt32(reader["ID"]),
+          Convert.ToInt32(reader["classID"]), reader["naam"].ToString(),
+          Convert.ToInt32(reader["HP"]), Convert.ToInt32(reader["playerlevel"]),
+          Convert.ToInt32(reader["XPnextlevel"])));
+        }
+      }
+      connection.disConnect();
+      return players;
+    }
     private List<Weapon> getWeapons(int ID)
     {
       List<Weapon> weapons = new List<Weapon>();
