@@ -16,6 +16,7 @@
     "bluebird": "^3.4.1",
     "jspm": "^0.16.53",
     "jwt-decode": "^2.2.0",
+    "pace": "0.0.4",
     "requirejs": "^2.3.2",
     "sweetalert": "^1.1.3",
     "text": "github:requirejs/text#latest"
