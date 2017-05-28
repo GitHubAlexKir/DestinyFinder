@@ -326,7 +326,23 @@ namespace KillerApp.Repositories.UserRepo
 
     public string getRewards(int challenger)
     {
-      return "test";
+      Player player = getPlayer(challenger);
+      Random random = new Random();
+      int XP = 100 * random.Next(1, 10);
+      if (player.XPNextLevel <= XP)
+      {
+        player.level++;
+        player.XPNextLevel = player.level * 150;
+        player.HP += 200;
+        updatePlayer(player.ID,player.classID,player.HP,player.level,player.XPNextLevel);
+        return XP.ToString() + "XP gekregen en u bent level " + player.level + " geworden, er is een wapen toegevoegd in je inventaris.";
+      }
+      else
+      {
+        player.XPNextLevel -= XP;
+        updatePlayer(player.ID, player.classID, player.HP, player.level, player.XPNextLevel);
+        return XP.ToString() + "XP gekregen.";
+      }
     }
   }
 }

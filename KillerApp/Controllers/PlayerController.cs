@@ -83,5 +83,10 @@ namespace KillerApp.Controllers
         return false;
       }
     }
+    [HttpPost]
+    public string getReward([FromBody] int ID)
+    {
+      return playerRepo.getRewards(ID);
+    }
   }
 }

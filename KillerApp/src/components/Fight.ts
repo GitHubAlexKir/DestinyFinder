@@ -50,13 +50,7 @@ export class Fight {
         }).then(response => response.json())
             .then(data => {
                 if (data) {
-                    swal({
-                        title: "U heeft gewonnen!",
-                        type: "success",
-                        showCancelButton: false,
-                        showConfirmButton: true,
-                        closeOnConfirm: true
-                    });
+                    this.getReward();
                 }
                 else {
                     swal({
@@ -70,7 +64,21 @@ export class Fight {
             });
         
     }
-
+    getReward() {
+        this.http.fetch('Player/getReward', {
+            body: json(jwt_decode(this.auth.getAccessToken()).userid)
+        }).then(response => response.text())
+            .then(data => {
+                swal({
+                    title: "U heeft gewonnen!, U heeft " + String(data),
+                    type: "success",
+                    showCancelButton: false,
+                    showConfirmButton: true,
+                    closeOnConfirm: true
+                });
+            });
+        console.log(this.player)
+    }
     setImage() {
         switch (this.opponent.classID) {
             case 1:
