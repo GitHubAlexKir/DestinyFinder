@@ -44,7 +44,7 @@ export class Character {
     }
 
     updatePlayer() {
-        this.updatedPlayer = new UpdatePlayer(this.playerstats.ID, this.className, this.HP, this.level, this.XP);
+        this.updatedPlayer = new UpdatePlayer(this.playerstats.id, this.className, this.HP, this.level, this.XP);
         this.http.fetch('Player/update', {
             body: json(this.updatedPlayer)
         });

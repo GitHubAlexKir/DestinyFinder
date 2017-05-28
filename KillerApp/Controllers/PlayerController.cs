@@ -70,10 +70,10 @@ namespace KillerApp.Controllers
     [HttpPost]
     public bool fight([FromBody] dynamic fight)
     {
-      int challenger = fight.player;
-      int opponent = fight.opponement;
+      int challengerHP = fight.player;
+      int opponentID = fight.opponement;
       int weaponID = fight.weapon;
-      bool fightResult = playerRepo.Fight(challenger,opponent,weaponID);
+      bool fightResult = playerRepo.Fight(challengerHP,opponentID,weaponID);
       if (fightResult)
       {
         return true;

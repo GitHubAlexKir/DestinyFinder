@@ -13,7 +13,7 @@ namespace KillerApp.Repositories.UserRepo
         Player getPlayer(int ID);
     string getID(string name);
     Player updatePlayer(int iD, int classID, int hP, int level, int xP);
-    bool Fight(int challenger, int opponent, int weaponID);
+    bool Fight(int challengerHP, int opponentID, int weaponID);
     string getRewards(int challenger);
     List<Player> getPlayers(int ID);
   }

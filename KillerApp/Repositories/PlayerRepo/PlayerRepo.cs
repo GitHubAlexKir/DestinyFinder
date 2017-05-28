@@ -277,9 +277,51 @@ namespace KillerApp.Repositories.UserRepo
       return getPlayer(iD);
     }
 
-    public bool Fight(int challenger, int opponent, int weaponID)
+    public bool Fight(int challengerHP, int opponentID, int weaponID)
     {
-      return false;
+      int opponentHP;
+      int opponentDamage;
+      int challengerDamage;
+
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select TOP 1 stat.HP,wap.damage from speler spel join Statistiek stat on stat.spelerID = spel.ID join wapen wap on wap.spelerID = spel.ID where spel.ID = @ID and wap.damage = (select max(damage) from wapen where spelerID = @ID)", connection.getConnection());
+      sqlCommand.Parameters.AddWithValue("@ID", opponentID);
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      reader.Read();
+      opponentHP = Convert.ToInt32(reader["HP"]);
+      opponentDamage = Convert.ToInt32(reader["Damage"]);
+      connection.disConnect();
+
+      connection.Connect();
+      sqlCommand = new SqlCommand("select damage from Wapen where ID = @ID", connection.getConnection());
+      sqlCommand.Parameters.AddWithValue("@ID", weaponID);
+      reader = sqlCommand.ExecuteReader();
+      reader.Read();
+      challengerDamage = Convert.ToInt32(reader["damage"]);
+      connection.disConnect();
+
+      int opponentHits = 0;
+      while (challengerHP > 0)
+      {
+        challengerHP -= opponentDamage;
+        opponentHits++;
+      }
+
+      int challengerHits = 0;
+      while (opponentHP > 0)
+      {
+        opponentHP -= challengerDamage;
+        challengerHits++;
+      }
+      if (challengerHits >= opponentHits)
+      {
+        return false;
+      }
+      else
+      {
+        return true;
+      }
+      
     }
 
     public string getRewards(int challenger)

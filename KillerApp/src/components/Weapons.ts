@@ -11,6 +11,7 @@ export class Weapons {
     damage;
     minlevel;
     newWeapon;
+    selectedWeapon;
     editweapon;
     constructor(private auth: AuthService, private http: HttpClient) {
         this.weapons();
@@ -34,13 +35,13 @@ export class Weapons {
     }
 
     editWeapon(weapon) {
-        
-        this.editweapon = new editWeapon(this.name, this.damage, this.minlevel, weapon.id);
-        console.log(this.editweapon);
-        this.http.fetch('Weapon/editWeapon', {
-            body: json(this.editweapon)
-        });
-        this.weapons();
+        console.log(this.selectedWeapon);
+        //this.editweapon = new editWeapon(this.name, this.damage, this.minlevel, weapon.id);
+        //console.log(this.editweapon);
+        //this.http.fetch('Weapon/editWeapon', {
+        //    body: json(this.editweapon)
+        //});
+        //this.weapons();
     }
 
     deleteWeapon(weapon) {

@@ -13,7 +13,7 @@ export class Fight {
     weapon;
     apponement;
     playerurl;
-    result: boolean;
+
     constructor(private auth: AuthService, private http: HttpClient) {
         this.getPlayers();
         this.getPlayer();
@@ -46,7 +46,7 @@ export class Fight {
 
     fight() {
         this.http.fetch('Player/fight', {
-            body: json(new fight(this.player.id, this.opponent.id, this.weapon.id))
+            body: json(new fight(this.player.hp, this.opponent.id, this.weapon.id))
         }).then(response => response.json())
             .then(data => {
                 if (data) {
