@@ -27,7 +27,7 @@ export class Weapons {
     }
 
     addWeapon() {
-        this.newWeapon = new newWeapon(this.name, this.damage, this.minlevel, this.weaponsplayer.ID);
+        this.newWeapon = new newWeapon(this.name, this.damage, this.minlevel, jwt_decode(this.auth.getAccessToken()).userid);
         this.http.fetch('Weapon/addWeapon', {
             body: json(this.newWeapon)
         });
@@ -36,12 +36,12 @@ export class Weapons {
 
     editWeapon(weapon) {
         console.log(this.selectedWeapon);
-        //this.editweapon = new editWeapon(this.name, this.damage, this.minlevel, weapon.id);
-        //console.log(this.editweapon);
-        //this.http.fetch('Weapon/editWeapon', {
-        //    body: json(this.editweapon)
-        //});
-        //this.weapons();
+        this.editweapon = new editWeapon(this.name, this.damage, this.minlevel, weapon.id);
+        console.log(this.editweapon);
+        this.http.fetch('Weapon/editWeapon', {
+            body: json(this.editweapon)
+        });
+        this.weapons();
     }
 
     deleteWeapon(weapon) {
