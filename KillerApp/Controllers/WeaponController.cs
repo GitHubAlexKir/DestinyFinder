@@ -44,5 +44,11 @@ namespace KillerApp.Controllers
       int weaponID = weapon.ID;
       weaponRepo.editWeapon(name, damage, minlevel, weaponID);
     }
+
+    [HttpPost]
+    public JsonResult getBest()
+    {
+      return Json(weaponRepo.getBestWeapons());
+    }
   }
 }

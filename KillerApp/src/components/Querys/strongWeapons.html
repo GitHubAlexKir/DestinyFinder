@@ -1,0 +1,26 @@
+﻿<template>
+  <div class="container">
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Naam</th>
+        <th>Damage</th>
+        <th>Minimale level</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="weapon of weapons">
+        <td class="col-md-6">
+          ${weapon.name}
+        </td>
+        <td class="col-md-4">
+          ${weapon.damage}
+        </td>
+        <td class="col-md-4">
+          ${weapon.minLevel}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>

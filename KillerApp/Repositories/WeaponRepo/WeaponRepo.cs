@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using KillerApp.enitities;
 
 namespace KillerApp.Repositories.WeaponRepo
 {
@@ -46,6 +47,23 @@ namespace KillerApp.Repositories.WeaponRepo
       sqlCommand.Parameters.AddWithValue("@minlevel", minlevel);
       sqlCommand.ExecuteNonQuery();
       connection.disConnect();
+    }
+
+    public List<Weapon> getBestWeapons()
+    {
+      List<Weapon> weapons = new List<Weapon>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select * from Wapen WHERE Damage >= 300;", connection.getConnection());
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          weapons.Add(new Weapon(Convert.ToInt16(reader["ID"]), reader["naam"].ToString(), Convert.ToInt16(reader["damage"]), Convert.ToInt16(reader["minLevel"])));
+        }
+      }
+      connection.disConnect();
+      return weapons;
     }
   }
 }
