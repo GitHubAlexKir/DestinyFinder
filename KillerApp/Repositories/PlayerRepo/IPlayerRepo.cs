@@ -16,5 +16,6 @@ namespace KillerApp.Repositories.UserRepo
     bool Fight(int challengerHP, int opponentID, int weaponID);
     string getRewards(int challenger);
     List<Player> getPlayers(int ID);
+    List<PlayerAvg> getAvg();
   }
 }

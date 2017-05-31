@@ -54,6 +54,8 @@ export class App {
             { route: ['/', 'Bounties'], name: 'Bounties', moduleId: 'components/Bounties', auth: true },
             { route: ['/', 'Fight'], name: 'Fight', moduleId: 'components/Fight', auth: true },
             { route: ['/', 'BestWeapons'], name: 'BestWeapons', moduleId: 'components/Querys/strongWeapons', auth: true },
+            { route: ['/', 'MainQuest'], name: 'MainQuest', moduleId: 'components/Querys/mainQuest', auth: true },
+            { route: ['/', 'AvgDamage'], name: 'AvgDamage', moduleId: 'components/Querys/AverageDamage', auth: true },
             { route: ['/', 'Register'], name: 'Register', moduleId: 'components/Register' },
             { route: ['/', 'Login'], name: 'Login', moduleId: 'components/Login' }
         ]);

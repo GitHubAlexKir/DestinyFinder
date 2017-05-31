@@ -36,6 +36,28 @@ namespace KillerApp.Repositories.QuestRepo
         connection.disConnect();
       }
     }
+
+    public List<Quest> getMainQuest()
+    {
+      List<Quest> quests = new List<Quest>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("SELECT * FROM Quest WHERE MainQuestID = (SELECT top 1 ID FROM Quest WHERE Omschrijving = 'Fruit of the Garden');", connection.getConnection());
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          int questID = Convert.ToInt16(reader["ID"]);
+          int mainquestID = Convert.ToInt32(reader["mainQuestID"]);
+          string omschrijving = reader["omschrijving"].ToString();
+          List<QuestRequirement> questsreq = new List<QuestRequirement>();
+          quests.Add(new Quest(questID, mainquestID, omschrijving, questsreq));
+        }
+      }
+      connection.disConnect();
+      return quests;
+    }
+
     public void setQuestRequirement(int ID, int progress)
     {
       connection.Connect();

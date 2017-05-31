@@ -45,6 +45,12 @@
             <li show.bind="authenticated">
               <a route-href="route: BestWeapons">Best Weapons</a>
             </li>
+            <li show.bind="authenticated">
+              <a route-href="route: MainQuest">Main Quest</a>
+            </li>
+            <li show.bind="authenticated">
+              <a route-href="route: AvgDamage">Player Leaderboard</a>
+            </li>
             <li>
               <a href="#" click.delegate="logout()" show.bind="authenticated">
                 Uitloggen

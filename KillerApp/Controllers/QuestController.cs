@@ -47,5 +47,10 @@ namespace KillerApp.Controllers
       }
       questRepo.addQuest(userID, description, requirements);
     }
+    [HttpPost]
+    public JsonResult getMain()
+    {
+      return Json(questRepo.getMainQuest());
+    }
   }
 }

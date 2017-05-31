@@ -1,0 +1,22 @@
+﻿<template>
+  <div class="container">
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Naam</th>
+        <th>Gemiddelde damage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="player of players">
+        <td class="col-md-6">
+          ${player.name}
+        </td>
+        <td class="col-md-4">
+          ${player.avgDamage}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>

@@ -10,5 +10,6 @@ namespace KillerApp.Repositories.QuestRepo
     {
     void setQuestRequirement(int ID, int progress);
     void addQuest(int userID, string description, List<string> requirements);
+    List<Quest> getMainQuest();
   }
 }

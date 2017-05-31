@@ -45,6 +45,11 @@ namespace KillerApp.Controllers
     }
 
     [HttpPost]
+    public JsonResult getAvg()
+    {
+      return Json(playerRepo.getAvg());
+    }
+    [HttpPost]
     public void update([FromBody] dynamic user)
     {
       int ID = user.ID;

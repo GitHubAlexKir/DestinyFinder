@@ -344,5 +344,22 @@ namespace KillerApp.Repositories.UserRepo
         return XP.ToString() + "XP gekregen.";
       }
     }
+
+    public List<PlayerAvg> getAvg()
+    {
+      List<PlayerAvg> players = new List<PlayerAvg>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("SELECT s.naam, avg(w.damage) as damage FROM speler s JOIN wapen w on w.SpelerID=s.ID group by s.id, s.naam having avg(w.damage) < (select avg(w2.damage) from wapen w2);", connection.getConnection());
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          players.Add(new PlayerAvg(reader["naam"].ToString(), Convert.ToInt16(reader["damage"])));
+        }
+      }
+      connection.disConnect();
+      return players;
+    }
   }
 }
