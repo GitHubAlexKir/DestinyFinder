@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace KillerApp.Repositories.QuestRepo
 {
-    public class QuestRepo : IQuestRepo
-    {
-        ConnectionInterface connection;
+  public class QuestRepo : IQuestRepo
+  {
+    ConnectionInterface connection;
 
-        public QuestRepo()
-        {
-          this.connection = new Connection();
-        }
+    public QuestRepo()
+    {
+      this.connection = new Connection();
+    }
 
     public void addQuest(int userID, string description, List<string> requirements)
     {
@@ -24,7 +24,7 @@ namespace KillerApp.Repositories.QuestRepo
       SqlCommand sqlCommand = new SqlCommand("INSERT INTO Quest (SpelerID, Omschrijving) VALUES (@ID, @description); SELECT SCOPE_IDENTITY() as int", connection.getConnection());
       sqlCommand.Parameters.AddWithValue("@ID", userID);
       sqlCommand.Parameters.AddWithValue("@description", description);
-     int id = (int)(decimal)sqlCommand.ExecuteScalar();
+      int id = (int)(decimal)sqlCommand.ExecuteScalar();
       connection.disConnect();
       foreach (string item in requirements)
       {

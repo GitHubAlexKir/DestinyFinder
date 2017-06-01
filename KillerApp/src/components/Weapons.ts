@@ -23,7 +23,7 @@ export class Weapons {
         }).then(response => response.json())
             .then(data => {
                 this.weaponsplayer = data;
-                });
+            });
     }
 
     addWeapon() {
@@ -66,7 +66,7 @@ export class Weapons {
                 });
             }
         });
-        
+
     }
 }
 export class newWeapon {
@@ -74,7 +74,7 @@ export class newWeapon {
     damage;
     minlevel;
     playerID;
-    constructor(name: string, damage, minlevel,playerID) {
+    constructor(name: string, damage, minlevel, playerID) {
         this.name = name;
         this.damage = damage;
         this.minlevel = minlevel;
@@ -87,7 +87,7 @@ export class editWeapon {
     damage;
     minlevel;
     ID;
-    constructor(name: string, damage, minlevel,ID) {
+    constructor(name: string, damage, minlevel, ID) {
         this.name = name;
         this.damage = damage;
         this.minlevel = minlevel;

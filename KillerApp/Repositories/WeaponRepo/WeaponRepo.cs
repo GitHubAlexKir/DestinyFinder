@@ -7,8 +7,8 @@ using KillerApp.enitities;
 
 namespace KillerApp.Repositories.WeaponRepo
 {
-    public class WeaponRepo : IWeaponRepo
-    {
+  public class WeaponRepo : IWeaponRepo
+  {
     ConnectionInterface connection;
 
     public WeaponRepo()
@@ -97,7 +97,7 @@ namespace KillerApp.Repositories.WeaponRepo
       connection.disConnect();
       return weapons;
     }
-      public List<WeaponUser> getTotalWeaponsSorted()
+    public List<WeaponUser> getTotalWeaponsSorted()
     {
       List<WeaponUser> weapons = new List<WeaponUser>();
       connection.Connect();

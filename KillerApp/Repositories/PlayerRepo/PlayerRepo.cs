@@ -9,41 +9,41 @@ using System.Threading.Tasks;
 
 namespace KillerApp.Repositories.UserRepo
 {
-    public class PlayerRepo : IPlayerRepo
-    {
-        ConnectionInterface connection;
+  public class PlayerRepo : IPlayerRepo
+  {
+    ConnectionInterface connection;
 
-        public PlayerRepo()
-        {
-          this.connection = new Connection();
-        }
+    public PlayerRepo()
+    {
+      this.connection = new Connection();
+    }
     public bool login(string name, string passwordFilledIn)
+    {
+      bool login = false;
+      string passwordDatabase = "";
+
+      if (name == null || name == "" || passwordFilledIn == null || passwordFilledIn == "") return false;
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("SELECT * from Speler where naam like @naam", connection.getConnection());
+
+      sqlCommand.Parameters.AddWithValue("@naam", name);
+
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
         {
-       bool login = false;
-       string passwordDatabase = "";
-      
-       if (name == null || name == "" || passwordFilledIn == null || passwordFilledIn == "") return false;
-           connection.Connect();
-           SqlCommand sqlCommand = new SqlCommand("SELECT * from Speler where naam like @naam", connection.getConnection());
-      
-           sqlCommand.Parameters.AddWithValue("@naam", name);
-      
-           SqlDataReader reader = sqlCommand.ExecuteReader();
-           if (reader.HasRows)
-           {
-               while (reader.Read())
-               {
-                 passwordDatabase = reader["wachtwoord"].ToString();
-               }
-           }
-            connection.disConnect();
-       if (passwordDatabase == passwordFilledIn)
-       {
-           login = true;
-       }
-      
-       return login;
+          passwordDatabase = reader["wachtwoord"].ToString();
         }
+      }
+      connection.disConnect();
+      if (passwordDatabase == passwordFilledIn)
+      {
+        login = true;
+      }
+
+      return login;
+    }
     public bool register(string name, string pass, string classname)
     {
       if (nameCheck(name))
@@ -64,10 +64,10 @@ namespace KillerApp.Repositories.UserRepo
         connection.Connect();
         SqlCommand command = new SqlCommand("createPlayer", connection.getConnection());
         command.CommandType = CommandType.StoredProcedure;
-          command.Parameters.Add(new SqlParameter("@class", classID));
-          command.Parameters.Add(new SqlParameter("@naam", name));
-          command.Parameters.Add(new SqlParameter("@wachtwoord", pass));
-          command.ExecuteNonQuery();
+        command.Parameters.Add(new SqlParameter("@class", classID));
+        command.Parameters.Add(new SqlParameter("@naam", name));
+        command.Parameters.Add(new SqlParameter("@wachtwoord", pass));
+        command.ExecuteNonQuery();
         connection.disConnect();
         return true;
       }
@@ -75,15 +75,15 @@ namespace KillerApp.Repositories.UserRepo
       {
         return false;
       }
-        
+
     }
 
     private bool nameCheck(string name)
     {
       connection.Connect();
       SqlCommand sqlCommand = new SqlCommand("SELECT COUNT(*) from speler where naam like @name", connection.getConnection());
-        sqlCommand.Parameters.AddWithValue("@name", name);
-        int userCount = (int)sqlCommand.ExecuteScalar();
+      sqlCommand.Parameters.AddWithValue("@name", name);
+      int userCount = (int)sqlCommand.ExecuteScalar();
       connection.disConnect();
       if (userCount == 0)
       {
@@ -118,7 +118,7 @@ namespace KillerApp.Repositories.UserRepo
       player = new Player(Convert.ToInt32(reader["ID"]),
           Convert.ToInt32(reader["classID"]), reader["naam"].ToString(),
           Convert.ToInt32(reader["HP"]), Convert.ToInt32(reader["playerlevel"]),
-          Convert.ToInt32(reader["XPnextlevel"]), getWeapons(ID),getQuests(ID),getBounties(ID));
+          Convert.ToInt32(reader["XPnextlevel"]), getWeapons(ID), getQuests(ID), getBounties(ID));
       connection.disConnect();
       return player;
     }
@@ -185,7 +185,7 @@ namespace KillerApp.Repositories.UserRepo
           }
           string omschrijving = reader["omschrijving"].ToString();
           List<QuestRequirement> questsreq = getQuestRequirements(questID);
-          quests.Add(new Quest(questID,mainquestID,omschrijving,questsreq));
+          quests.Add(new Quest(questID, mainquestID, omschrijving, questsreq));
         }
       }
       connection.disConnect();
@@ -321,7 +321,7 @@ namespace KillerApp.Repositories.UserRepo
       {
         return true;
       }
-      
+
     }
 
     public string getRewards(int challenger)
@@ -334,7 +334,7 @@ namespace KillerApp.Repositories.UserRepo
         player.level++;
         player.XPNextLevel = player.level * 150;
         player.HP += 200;
-        updatePlayer(player.ID,player.classID,player.HP,player.level,player.XPNextLevel);
+        updatePlayer(player.ID, player.classID, player.HP, player.level, player.XPNextLevel);
         return XP.ToString() + "XP gekregen en u bent level " + player.level + " geworden, er is een wapen toegevoegd in je inventaris.";
       }
       else

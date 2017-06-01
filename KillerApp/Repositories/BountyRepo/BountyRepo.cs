@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace KillerApp.Repositories.BountyRepo
 {
-    public class BountyRepo : IBountyRepo
-    {
+  public class BountyRepo : IBountyRepo
+  {
     ConnectionInterface connection;
 
     public BountyRepo()

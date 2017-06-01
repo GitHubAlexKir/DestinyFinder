@@ -28,7 +28,7 @@ export class Fight {
     }
 
     getPlayers() {
-        this.http.fetch('Player/getPlayers',{
+        this.http.fetch('Player/getPlayers', {
             body: json(jwt_decode(this.auth.getAccessToken()).userid)
         }).then(response => response.json())
             .then(data => {
@@ -45,7 +45,7 @@ export class Fight {
     }
 
     fight() {
-        this.http.fetch('Player/fight', {
+        this.http.fetch('Fight/fight', {
             body: json(new fight(this.player.hp, this.opponent.id, this.weapon.id))
         }).then(response => response.json())
             .then(data => {
@@ -62,10 +62,10 @@ export class Fight {
                     });
                 }
             });
-        
+
     }
     getReward() {
-        this.http.fetch('Player/getReward', {
+        this.http.fetch('Fight/getReward', {
             body: json(jwt_decode(this.auth.getAccessToken()).userid)
         }).then(response => response.text())
             .then(data => {
@@ -99,8 +99,7 @@ export class fight {
     player;
     opponement;
     weapon;
-    constructor(player, opponement, weapon)
-    {
+    constructor(player, opponement, weapon) {
         this.player = player;
         this.opponement = opponement;
         this.weapon = weapon;

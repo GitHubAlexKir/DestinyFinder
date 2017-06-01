@@ -54,7 +54,7 @@ export class Register {
                         });
                     }
                 });
-            }
+        }
     }
 
     login() {
@@ -70,11 +70,11 @@ export class Register {
 
 }
 
-export class Player{
+export class Player {
     name: string;
     password: string;
     classID: string;
-    constructor(name: string,password: string, classID: string) {
+    constructor(name: string, password: string, classID: string) {
         this.name = name;
         this.password = password;
         this.classID = classID;

@@ -5,22 +5,22 @@ using System.Threading.Tasks;
 
 namespace KillerApp.enitities
 {
-    public class Quest
-    {
-        public int ID;
-        public int mainQuestID;
-        public string description;
-        public List<QuestRequirement> requirements;
-        public string progress;
+  public class Quest
+  {
+    public int ID;
+    public int mainQuestID;
+    public string description;
+    public List<QuestRequirement> requirements;
+    public string progress;
 
-        public Quest(int ID, int mainQuestID, string description, List<QuestRequirement> requirements)
-        {
-            this.ID = ID;
-            this.mainQuestID = mainQuestID;
-            this.description = description;
-            this.requirements = requirements;
+    public Quest(int ID, int mainQuestID, string description, List<QuestRequirement> requirements)
+    {
+      this.ID = ID;
+      this.mainQuestID = mainQuestID;
+      this.description = description;
+      this.requirements = requirements;
       this.progress = getProgress(requirements);
-        }
+    }
 
     private string getProgress(List<QuestRequirement> requirements)
     {

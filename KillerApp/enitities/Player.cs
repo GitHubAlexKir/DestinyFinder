@@ -17,9 +17,9 @@ namespace KillerApp.enitities
     public List<Quest> quests;
     public List<Bounty> bounties;
     public string classname;
-    
+
     public Player(int ID, int classID, string name, int HP, int level, int XPNextLevel
-      ,List<Weapon> weapons, List<Quest> quests, List<Bounty> bounties)
+      , List<Weapon> weapons, List<Quest> quests, List<Bounty> bounties)
     {
       this.ID = ID;
       this.classID = classID;

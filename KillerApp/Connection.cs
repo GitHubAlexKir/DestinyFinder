@@ -24,7 +24,7 @@ namespace KillerApp
     }
     public void disConnect()
     {
-        databaseConnection.Close();
+      databaseConnection.Close();
     }
 
     public SqlConnection getConnection()

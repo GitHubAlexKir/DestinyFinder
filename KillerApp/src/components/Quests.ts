@@ -59,8 +59,7 @@ export class selectedQuest {
 
 export class requirement {
     description: string;
-    constructor(description: string)
-    {
+    constructor(description: string) {
         this.description = description;
     }
 }
@@ -69,10 +68,9 @@ export class newQuest {
     requirements;
     description;
     ID;
-    constructor(requirements, name, userID)
-    {
+    constructor(requirements, name, userID) {
         this.requirements = requirements;
-        this.description= name;
+        this.description = name;
         this.ID = userID;
     }
 }

@@ -5,15 +5,15 @@ using System.Threading.Tasks;
 
 namespace KillerApp.enitities
 {
-    public class WeaponUser
-    {
-       public string name;
-       public string weapon;
+  public class WeaponUser
+  {
+    public string name;
+    public string weapon;
 
-       public WeaponUser(string name, string weapon)
-       {
-         this.name = name;
-         this.weapon = weapon;
-       }
+    public WeaponUser(string name, string weapon)
+    {
+      this.name = name;
+      this.weapon = weapon;
     }
+  }
 }

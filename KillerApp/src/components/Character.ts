@@ -38,7 +38,7 @@ export class Character {
                 break;
             case 3:
                 this.playerurl = "/images/warlock.png";
-                break; 
+                break;
             default:
         }
     }
@@ -60,7 +60,7 @@ export class UpdatePlayer {
     level;
     XP;
 
-    constructor(ID: string, className,HP,level,XP) {
+    constructor(ID: string, className, HP, level, XP) {
         this.ID = ID;
         this.className = className;
         this.HP = HP;

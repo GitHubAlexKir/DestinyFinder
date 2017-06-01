@@ -14,55 +14,55 @@
             <div class="modal-body">
               <div class="form-group">
                 <label for="userEmail">Locatie</label>
-                <input type="text" class="form-control" name="location"  value.bind="location" required>
+                <input type="text" class="form-control" name="location" value.bind="location" required>
                 <span class="help-block">Vul de locatie van de Bounty in.</span>
               </div>
-                  <div class="form-group">
-                    <label for="password">Omschrijving</label>
-                    <input type="text" class="form-control" name="description"  value.bind="description" required>
-                    <span class="help-block">vul de omschrijving in van de Bounty.</span>
-                  </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default"  data-dismiss="modal">Annuleren</button>
-              <button type="button" class="btn btn-default" click.delegate="addBounty()" data-dismiss="modal">Toevoegen</button>
+              <div class="form-group">
+                <label for="password">Omschrijving</label>
+                <input type="text" class="form-control" name="description" value.bind="description" required>
+                <span class="help-block">vul de omschrijving in van de Bounty.</span>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Annuleren</button>
+                <button type="button" class="btn btn-default" click.delegate="addBounty()" data-dismiss="modal">Toevoegen</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="container">
-    </div>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Locatie</th>
-          <th>Omschrijving</th>
-          <th>voortgang</th>
-          <th>opties</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr repeat.for="bounty of playerBounties.bounties">
-          <td class="col-md-2">
-            ${bounty.location}
-          </td>
+      <div class="container">
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Locatie</th>
+            <th>Omschrijving</th>
+            <th>voortgang</th>
+            <th>opties</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr repeat.for="bounty of playerBounties.bounties">
+            <td class="col-md-2">
+              ${bounty.location}
+            </td>
             <td class="col-md-8">
               ${bounty.description}
-          </td>
-          <td class="col-md-2">
-            ${bounty.progress}
-          </td>
-          <td class="col-md-2">
-            <button type="button" class="btn btn-default btn-sm" click.delegate="changeProgress(bounty)">
-              <span class="glyphicon glyphicon-ok"></span> Voltooien/Onvoltooien
-            </button>
-            <button type="button" class="btn btn-default btn-sm" click.delegate="deleteBounty(bounty)">
-              <span class="glyphicon glyphicon-remove"></span> verwijderen
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </td>
+            <td class="col-md-2">
+              ${bounty.progress}
+            </td>
+            <td class="col-md-2">
+              <button type="button" class="btn btn-default btn-sm" click.delegate="changeProgress(bounty)">
+                <span class="glyphicon glyphicon-ok"></span> Voltooien/Onvoltooien
+              </button>
+              <button type="button" class="btn btn-default btn-sm" click.delegate="deleteBounty(bounty)">
+                <span class="glyphicon glyphicon-remove"></span> verwijderen
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
 </template>

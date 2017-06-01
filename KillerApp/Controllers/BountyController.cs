@@ -10,7 +10,7 @@ namespace KillerApp.Controllers
 {
   [Route("api/[controller]/[action]")]
   public class BountyController : Controller
-    {
+  {
     private IBountyRepo bountyRepo;
 
     public BountyController()

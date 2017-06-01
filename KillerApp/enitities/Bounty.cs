@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace KillerApp.enitities
 {
-    public class Bounty
-    {
+  public class Bounty
+  {
     public int ID;
     public string location;
     public string description;
