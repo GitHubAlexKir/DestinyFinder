@@ -17,7 +17,7 @@ namespace KillerApp.Controllers
     {
       weaponRepo = new WeaponRepo();
     }
-
+    //Wapen toevoegen
     [HttpPost]
     public void addWeapon([FromBody] dynamic weapon)
     {
@@ -27,14 +27,14 @@ namespace KillerApp.Controllers
       int playerID = weapon.playerID;
       weaponRepo.addWeapon(name, damage, minlevel, playerID);
     }
-
+    //wapen verwijderen
     [HttpPost]
     public void deleteWeapon([FromBody] dynamic weapon)
     {
       int ID = weapon.id;
       weaponRepo.deleteWeapon(ID);
     }
-
+    //wapen veranderen
     [HttpPost]
     public void editWeapon([FromBody] dynamic weapon)
     {
@@ -44,22 +44,25 @@ namespace KillerApp.Controllers
       int weaponID = weapon.ID;
       weaponRepo.editWeapon(name, damage, minlevel, weaponID);
     }
-
+    //Query wapens boven damage 300 ophalen
     [HttpPost]
     public JsonResult getBest()
     {
       return Json(weaponRepo.getBestWeapons());
     }
+    //Query alle wapens ophalen
     [HttpPost]
     public JsonResult getAllWeapons()
     {
       return Json(weaponRepo.getAllWeapons());
     }
+    //Query totaal aantal wapens per speler ophalen
     [HttpPost]
     public JsonResult getTotalWeapons()
     {
       return Json(weaponRepo.getTotalWeapons());
     }
+    //Query alle wapens ophalen per speler gesorteerd op totaal aantal
     [HttpPost]
     public JsonResult getTotalWeaponsSorted()
     {

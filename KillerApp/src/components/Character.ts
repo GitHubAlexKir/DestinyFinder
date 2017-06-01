@@ -17,7 +17,7 @@ export class Character {
     constructor(private auth: AuthService, private http: HttpClient) {
         this.stats();
     }
-
+    //speler ophalen
     stats() {
         this.http.fetch('Player/get', {
             body: json(jwt_decode(this.auth.getAccessToken()).userid)
@@ -28,6 +28,7 @@ export class Character {
                 this.setImage();
             });
     }
+    //foto op klasse wijzigen
     setImage() {
         switch (this.playerstats.classID) {
             case 1:
@@ -42,7 +43,7 @@ export class Character {
             default:
         }
     }
-
+    //speler updaten
     updatePlayer() {
         this.updatedPlayer = new UpdatePlayer(this.playerstats.id, this.className, this.HP, this.level, this.XP);
         this.http.fetch('Player/update', {
@@ -52,7 +53,7 @@ export class Character {
     }
 }
 
-
+//class voor updaten van speler
 export class UpdatePlayer {
     ID: string;
     className: string;

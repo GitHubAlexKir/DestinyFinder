@@ -18,6 +18,7 @@ export class Fight {
         this.getPlayers();
         this.getPlayer();
     }
+    //speler ophalen
     getPlayer() {
         this.http.fetch('Player/get', {
             body: json(jwt_decode(this.auth.getAccessToken()).userid)
@@ -26,7 +27,7 @@ export class Fight {
                 this.player = data;
             });
     }
-
+    //alle spelers ophalen
     getPlayers() {
         this.http.fetch('Player/getPlayers', {
             body: json(jwt_decode(this.auth.getAccessToken()).userid)
@@ -37,13 +38,14 @@ export class Fight {
                 this.setImage();
             });
     }
+    //geselecteerde speler aanpassen
     select(player) {
         console.log(player);
         this.selectedID = player.id;
         this.opponent = player;
         this.setImage();
     }
-
+    //gevecht starten
     fight() {
         this.http.fetch('Fight/fight', {
             body: json(new fight(this.player.hp, this.opponent.id, this.weapon.id))
@@ -64,6 +66,7 @@ export class Fight {
             });
 
     }
+    //rewards ophalen
     getReward() {
         this.http.fetch('Fight/getReward', {
             body: json(jwt_decode(this.auth.getAccessToken()).userid)
@@ -79,6 +82,7 @@ export class Fight {
             });
         console.log(this.player)
     }
+    //foto op klasse aanpassen
     setImage() {
         switch (this.opponent.classID) {
             case 1:
@@ -94,7 +98,7 @@ export class Fight {
         }
     }
 }
-
+//class op een fight mee te geven
 export class fight {
     player;
     opponement;

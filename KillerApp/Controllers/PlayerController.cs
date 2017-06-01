@@ -18,6 +18,7 @@ namespace KillerApp.Controllers
     {
       playerRepo = new PlayerRepo();
     }
+    //registreren en controleren of naam al bezet is
     [HttpPost]
     public bool register([FromBody] dynamic credentials)
     {
@@ -33,28 +34,31 @@ namespace KillerApp.Controllers
         return false;
       }
     }
+    //speler ophalen
     [HttpPost]
     public JsonResult get([FromBody] int ID)
     {
       return Json(playerRepo.getPlayer(ID));
     }
+    //alle spelers ophalen
     [HttpPost]
     public JsonResult getPlayers([FromBody] int ID)
     {
       return Json(playerRepo.getPlayers(ID));
     }
-
+    //Query gemiddelde wapen damage
     [HttpPost]
     public JsonResult getAvg()
     {
       return Json(playerRepo.getAvg());
     }
+    //Query aantal spelers per klasse
     [HttpPost]
     public JsonResult getTotalClass()
     {
       return Json(playerRepo.getTotalClass());
     }
-
+    //speler updaten
     [HttpPost]
     public void update([FromBody] dynamic user)
     {

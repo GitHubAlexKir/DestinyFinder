@@ -15,7 +15,7 @@ export class Register {
 
     constructor(private auth: AuthService, private http: HttpClient, private event: EventAggregator, private router: Router) {
     }
-
+    //registreren
     register() {
         if (this.password != this.passwordConfirm) {
             swal({
@@ -56,7 +56,7 @@ export class Register {
                 });
         }
     }
-
+    //inloggen
     login() {
         this.auth.login({
             name: this.name,

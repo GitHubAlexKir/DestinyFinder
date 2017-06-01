@@ -17,7 +17,7 @@ namespace KillerApp.Controllers
     {
       bountyRepo = new BountyRepo();
     }
-
+    //Bonty on InCompleted/Completed zetten
     [HttpPost]
     public void setBounty([FromBody] dynamic bounty)
     {
@@ -34,7 +34,7 @@ namespace KillerApp.Controllers
       }
       bountyRepo.setBounty(ID, progress);
     }
-
+    //Bounty toevoegen
     [HttpPost]
     public void addBounty([FromBody] dynamic bounty)
     {
@@ -43,7 +43,7 @@ namespace KillerApp.Controllers
       string location = bounty.location;
       bountyRepo.addBounty(location, description, userID);
     }
-
+    //Bounty verwijderen
     [HttpPost]
     public void deleteBounty([FromBody] dynamic bounty)
     {

@@ -16,7 +16,7 @@ export class Quest {
     constructor(private auth: AuthService, private http: HttpClient) {
         this.quests();
     }
-
+    //speler ophalen
     quests() {
         this.http.fetch('Player/get', {
             body: json(jwt_decode(this.auth.getAccessToken()).userid)
@@ -25,7 +25,7 @@ export class Quest {
                 this.playerQuests = data;
             });
     }
-
+    //Quest status aanpassen
     changeProgress(quest) {
         this.selectedQuest = new selectedQuest(quest.id, quest.progress);
         this.http.fetch('Quest/setQuestRequirement', {
@@ -33,17 +33,19 @@ export class Quest {
         });
         this.quests();
     }
+    //requirement toevoegen
     addRequirement() {
         this.requirement = new requirement(this.description);
         this.requirements.push(this.requirement);
     }
+    //eigen quest toevoegen
     addQuest() {
         this.newQuest = new newQuest(this.requirements, this.name, this.playerQuests.ID);
-        console.log(this.newQuest);
         this.http.fetch('Quest/addQuest', {
             body: json(this.newQuest)
         });
         this.quests();
+        this.requirements = [];
     }
 }
 

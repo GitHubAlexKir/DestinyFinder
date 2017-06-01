@@ -18,7 +18,7 @@ namespace KillerApp.Controllers
     {
       questRepo = new QuestRepo();
     }
-
+    //QuestRequirement op incompleet/compleet zetten
     [HttpPost]
     public void setQuestRequirement([FromBody] dynamic quest)
     {
@@ -35,6 +35,7 @@ namespace KillerApp.Controllers
       }
       questRepo.setQuestRequirement(ID, progress);
     }
+    //quest toevoegen
     [HttpPost]
     public void addQuest([FromBody] Quest quest)
     {
@@ -47,6 +48,7 @@ namespace KillerApp.Controllers
       }
       questRepo.addQuest(userID, description, requirements);
     }
+    //Query subquesten van mainquest ophalen
     [HttpPost]
     public JsonResult getMain()
     {

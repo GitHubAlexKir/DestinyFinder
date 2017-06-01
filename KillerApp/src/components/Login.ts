@@ -13,7 +13,7 @@ export class Login {
 
     constructor(private auth: AuthService, private http: HttpClient, private event: EventAggregator, private router: Router) {
     }
-
+    //inloggen
     login() {
         this.auth.login({
             name: this.name,

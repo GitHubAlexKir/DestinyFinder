@@ -16,7 +16,7 @@ export class Weapons {
     constructor(private auth: AuthService, private http: HttpClient) {
         this.weapons();
     }
-
+    //speler ophalen
     weapons() {
         this.http.fetch('Player/get', {
             body: json(jwt_decode(this.auth.getAccessToken()).userid)
@@ -25,7 +25,7 @@ export class Weapons {
                 this.weaponsplayer = data;
             });
     }
-
+    //wapen toevoegen
     addWeapon() {
         this.newWeapon = new newWeapon(this.name, this.damage, this.minlevel, jwt_decode(this.auth.getAccessToken()).userid);
         this.http.fetch('Weapon/addWeapon', {
@@ -33,7 +33,7 @@ export class Weapons {
         });
         this.weapons();
     }
-
+    //wapen veranderen
     editWeapon(weapon) {
         console.log(this.selectedWeapon);
         this.editweapon = new editWeapon(this.name, this.damage, this.minlevel, weapon.id);
@@ -43,7 +43,7 @@ export class Weapons {
         });
         this.weapons();
     }
-
+    //wapen verwijderen
     deleteWeapon(weapon) {
         swal({
             title: 'Weet u het zeker?',

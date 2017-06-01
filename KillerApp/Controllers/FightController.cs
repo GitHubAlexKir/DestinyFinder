@@ -18,7 +18,7 @@ namespace KillerApp.Controllers
     {
       playerRepo = new PlayerRepo();
     }
-
+    //Fight uitvoeren en een boolean terug geven van verloren of gewonnen
     [HttpPost]
     public bool fight([FromBody] dynamic fight)
     {
@@ -35,6 +35,7 @@ namespace KillerApp.Controllers
         return false;
       }
     }
+    //rewards bepalen en als string terug geven
     [HttpPost]
     public string getReward([FromBody] int ID)
     {

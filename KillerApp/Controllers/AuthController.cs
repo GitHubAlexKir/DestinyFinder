@@ -28,6 +28,7 @@ namespace KillerApp.Controllers
       this.playerRepo = new PlayerRepo();
     }
 
+    //Login: Controleert of inloggegevens corect zijn en maakt een Accesstoken
     [HttpPost]
     public AccessToken Login([FromBody] dynamic credentials)
     {

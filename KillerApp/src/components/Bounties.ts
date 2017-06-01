@@ -13,7 +13,7 @@ export class Bounties {
     constructor(private auth: AuthService, private http: HttpClient) {
         this.bounties();
     }
-
+    //speler ophalen
     bounties() {
         this.http.fetch('Player/get', {
             body: json(jwt_decode(this.auth.getAccessToken()).userid)
@@ -22,13 +22,14 @@ export class Bounties {
                 this.playerBounties = data;
             });
     }
-
+    //bounty status aanpassen
     changeProgress(bounty) {
         this.http.fetch('Bounty/setBounty', {
             body: json(bounty)
         });
         this.bounties();
     }
+    //bounty toevoegen
     addBounty() {
         this.newbounty = new newBounty(this.location, this.description, this.playerBounties.ID);
         this.http.fetch('Bounty/addBounty', {
@@ -36,7 +37,7 @@ export class Bounties {
         });
         this.bounties();
     }
-
+    //bounty verwijderen
     deleteBounty(bounty) {
         swal({
             title: 'Weet u het zeker?',
@@ -63,7 +64,7 @@ export class Bounties {
 
 }
 
-
+//class voor nieuwe bounty
 export class newBounty {
     location: string;
     description: string;
