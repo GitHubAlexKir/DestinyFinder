@@ -50,5 +50,11 @@ namespace KillerApp.Controllers
     {
       return Json(weaponRepo.getBestWeapons());
     }
+    [HttpPost]
+    public JsonResult getAllWeapons()
+    {
+      return Json(weaponRepo.getAllWeapons());
+    }
+    
   }
 }

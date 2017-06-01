@@ -65,5 +65,21 @@ namespace KillerApp.Repositories.WeaponRepo
       connection.disConnect();
       return weapons;
     }
+    public List<WeaponUser> getAllWeapons()
+    {
+      List<WeaponUser> weapons = new List<WeaponUser>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("SELECT Speler.Naam, wapen.Naam as wapen FROM speler INNER JOIN wapen on Wapen.SpelerID = Speler.ID", connection.getConnection());
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          weapons.Add(new WeaponUser(reader["naam"].ToString(), reader["wapen"].ToString()));
+        }
+      }
+      connection.disConnect();
+      return weapons;
+    }
   }
 }

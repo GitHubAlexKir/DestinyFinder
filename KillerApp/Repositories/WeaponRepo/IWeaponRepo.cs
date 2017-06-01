@@ -12,5 +12,6 @@ namespace KillerApp.Repositories.WeaponRepo
     void deleteWeapon(int ID);
     void editWeapon(string name, int damage, int minlevel, int weaponID);
     List<Weapon> getBestWeapons();
+    List<WeaponUser> getAllWeapons();
   }
 }
