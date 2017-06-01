@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KillerApp.Repositories.UserRepo
 {
-    interface IPlayerRepo
+    public interface IPlayerRepo
     {
         bool login(string name, string passwordFilledIn);
         bool register(string name, string pass, string classname);
@@ -17,5 +17,6 @@ namespace KillerApp.Repositories.UserRepo
     string getRewards(int challenger);
     List<Player> getPlayers(int ID);
     List<PlayerAvg> getAvg();
+    List<TotalClass> getTotalClass();
   }
 }

@@ -361,5 +361,22 @@ namespace KillerApp.Repositories.UserRepo
       connection.disConnect();
       return players;
     }
+
+    public List<TotalClass> getTotalClass()
+    {
+      List<TotalClass> classes = new List<TotalClass>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select c.naam, (select Count(s.classID) from speler s where s.classid = c.id) as total from playerclass c;", connection.getConnection());
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          classes.Add(new TotalClass(reader["naam"].ToString(), Convert.ToInt16(reader["total"])));
+        }
+      }
+      connection.disConnect();
+      return classes;
+    }
   }
 }

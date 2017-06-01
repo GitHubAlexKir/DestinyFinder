@@ -50,6 +50,12 @@ namespace KillerApp.Controllers
       return Json(playerRepo.getAvg());
     }
     [HttpPost]
+    public JsonResult getTotalClass()
+    {
+      return Json(playerRepo.getTotalClass());
+    }
+
+    [HttpPost]
     public void update([FromBody] dynamic user)
     {
       int ID = user.ID;

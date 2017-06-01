@@ -1,0 +1,28 @@
+﻿<template>
+  <h1>
+    Aantal spelers per klasse ophalen.
+  </h1>
+  <a route-href="route: Querys" class="btn btn-primary">
+    Ga terug
+  </a>
+  <div class="container">
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>klasse</th>
+        <th>Totaal aantal spelers</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr repeat.for="class of totalClass">
+        <td class="col-md-6">
+          ${class.name}
+        </td>
+        <td class="col-md-4">
+          ${class.total}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</template>

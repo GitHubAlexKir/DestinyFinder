@@ -59,6 +59,7 @@ export class App {
             { route: ['/', 'Querys'], name: 'Querys', moduleId: 'components/Querys/Querys', auth: true },
             { route: ['/', 'AllWeapons'], name: 'AllWeapons', moduleId: 'components/Querys/AllWeapons', auth: true },
             { route: ['/', 'TotalWeapons'], name: 'TotalWeapons', moduleId: 'components/Querys/TotalWeapons', auth: true },
+            { route: ['/', 'TotalClass'], name: 'TotalClass', moduleId: 'components/Querys/TotalClass', auth: true },
             { route: ['/', 'Register'], name: 'Register', moduleId: 'components/Register' },
             { route: ['/', 'Login'], name: 'Login', moduleId: 'components/Login' }
         ]);
