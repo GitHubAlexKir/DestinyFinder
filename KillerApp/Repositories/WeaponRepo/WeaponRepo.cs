@@ -81,5 +81,37 @@ namespace KillerApp.Repositories.WeaponRepo
       connection.disConnect();
       return weapons;
     }
+    public List<WeaponUser> getTotalWeapons()
+    {
+      List<WeaponUser> weapons = new List<WeaponUser>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select s.naam, (select Count(w.spelerID) from wapen w where w.spelerid = s.id) as wapen from speler s", connection.getConnection());
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          weapons.Add(new WeaponUser(reader["naam"].ToString(), reader["wapen"].ToString()));
+        }
+      }
+      connection.disConnect();
+      return weapons;
+    }
+      public List<WeaponUser> getTotalWeaponsSorted()
+    {
+      List<WeaponUser> weapons = new List<WeaponUser>();
+      connection.Connect();
+      SqlCommand sqlCommand = new SqlCommand("select s.naam, count(*) as wapen from speler s inner join wapen w on w.SpelerID = s.ID group by s.naam having count(*) > 2 order by count(*) desc", connection.getConnection());
+      SqlDataReader reader = sqlCommand.ExecuteReader();
+      if (reader.HasRows)
+      {
+        while (reader.Read())
+        {
+          weapons.Add(new WeaponUser(reader["naam"].ToString(), reader["wapen"].ToString()));
+        }
+      }
+      connection.disConnect();
+      return weapons;
+    }
   }
 }

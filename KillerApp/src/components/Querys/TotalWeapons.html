@@ -1,0 +1,31 @@
+﻿<template>
+  <h1>
+    Aantal wapens van Speler ophalen.
+  </h1>
+  <a route-href="route: Querys" class="btn btn-primary">
+    Ga terug
+  </a>
+  <a click.delegate="getPlayersSorted()" class="btn btn-primary">
+    Sorteren op totaal aantal wapens
+    </a>
+    <div class="container">
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Speler's Naam</th>
+          <th>Aantal wapens</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="player of players">
+          <td class="col-md-6">
+            ${player.name}
+          </td>
+          <td class="col-md-4">
+            ${player.weapon}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</template>

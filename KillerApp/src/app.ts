@@ -58,6 +58,7 @@ export class App {
             { route: ['/', 'AvgDamage'], name: 'AvgDamage', moduleId: 'components/Querys/AverageDamage', auth: true },
             { route: ['/', 'Querys'], name: 'Querys', moduleId: 'components/Querys/Querys', auth: true },
             { route: ['/', 'AllWeapons'], name: 'AllWeapons', moduleId: 'components/Querys/AllWeapons', auth: true },
+            { route: ['/', 'TotalWeapons'], name: 'TotalWeapons', moduleId: 'components/Querys/TotalWeapons', auth: true },
             { route: ['/', 'Register'], name: 'Register', moduleId: 'components/Register' },
             { route: ['/', 'Login'], name: 'Login', moduleId: 'components/Login' }
         ]);
