@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="DestinyFinder" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\Gebruiker\\Documenten\\Visual\ Studio\ 2017\\Projects\\KillerApp\\KillerApp\\obj\\Release\\netcoreapp1\.1\\PubTmp\\Out\\$" />
+  <parameter name="IIS Web Application Name" description="" value="Default Web Site" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\Alex\\Documents\\Visual\ Studio\ 2017\\Projects\\KillerApp\\KillerApp\\obj\\Release\\netcoreapp1\.1\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

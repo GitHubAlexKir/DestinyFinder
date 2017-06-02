@@ -23,7 +23,6 @@ namespace UnitTestProjectKillerApp
                 stringChars[i] = chars[random.Next(chars.Length)];
             }
             string finalString = new String(stringChars);
-            finalString += "@email.com";
             playerRepo.register(finalString, "Wachtwoord2", "Hunter");
             bool registerSame = playerRepo.register(finalString, "Wachtwoord2", "Hunter");
             Assert.AreEqual(registerSame, false);
@@ -40,10 +39,9 @@ namespace UnitTestProjectKillerApp
                 stringChars[i] = chars[random.Next(chars.Length)];
             }
             string finalString = new String(stringChars);
-            finalString += "@email.com";
             playerRepo.register(finalString, "Wachtwoord2", "Hunter");
-            bool registerSame = playerRepo.login(finalString, "Wachtwoord2");
-            Assert.AreEqual(registerSame, true);
+            bool login = playerRepo.login(finalString, "Wachtwoord2");
+            Assert.AreEqual(login, true);
         }
         [TestMethod]
         public void TestMethodUpdateNonExistingPlayer()
