@@ -103,25 +103,25 @@ namespace KillerApp.Controllers
     public IActionResult update([FromBody] dynamic user)
     {
       int ID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
-      string className = user.className;
-      int classID = 1;
-      int level = user.level;
-      int HP = user.HP;
-      int XP = user.XP;
-      switch (className)
-      {
-        case "Hunter":
-          classID = 1;
-          break;
-        case "Titan":
-          classID = 2;
-          break;
-        case "Warlock":
-          classID = 3;
-          break;
-      }
       try
       {
+        string className = user.className;
+        int classID = 1;
+        int level = user.level;
+        int HP = user.HP;
+        int XP = user.XP;
+        switch (className)
+        {
+          case "Hunter":
+            classID = 1;
+            break;
+          case "Titan":
+            classID = 2;
+            break;
+          case "Warlock":
+            classID = 3;
+            break;
+        }
         playerRepo.updatePlayer(ID, classID, HP, level, XP);
         return StatusCode(200);
       }

@@ -59,12 +59,13 @@ namespace KillerApp.Controllers
     [HttpPost]
     public IActionResult editWeapon([FromBody] dynamic weapon)
     {
-      string name = weapon.name;
-      int damage = weapon.damage;
-      int minlevel = weapon.minlevel;
-      int weaponID = weapon.ID;
       try
       {
+        string name = weapon.name;
+        int damage = weapon.damage;
+        int minlevel = weapon.minlevel;
+        int weaponID = weapon.ID;
+
         weaponRepo.editWeapon(name, damage, minlevel, weaponID);
         return StatusCode(200);
       }

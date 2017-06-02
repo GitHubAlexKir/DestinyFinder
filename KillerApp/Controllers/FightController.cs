@@ -23,11 +23,11 @@ namespace KillerApp.Controllers
     [HttpPost]
     public bool fight([FromBody] dynamic fight)
     {
-      int challengerHP = fight.player;
-      int opponentID = fight.opponement;
-      int weaponID = fight.weapon;
       try
       {
+        int challengerHP = fight.player;
+        int opponentID = fight.opponement;
+        int weaponID = fight.weapon;
         return playerRepo.Fight(challengerHP, opponentID, weaponID);
       }
       catch (Exception ex)

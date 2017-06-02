@@ -49,11 +49,12 @@ namespace KillerApp.Controllers
     [HttpPost]
     public IActionResult addBounty([FromBody] dynamic bounty)
     {
-      int userID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
-      string description = bounty.description;
-      string location = bounty.location;
       try
       {
+        int userID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
+        string description = bounty.description;
+        string location = bounty.location;
+
         bountyRepo.addBounty(location, description, userID);
         return StatusCode(200);
       }

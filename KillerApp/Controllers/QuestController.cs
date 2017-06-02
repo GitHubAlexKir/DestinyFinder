@@ -51,14 +51,14 @@ namespace KillerApp.Controllers
     public IActionResult addQuest([FromBody] Quest quest)
     {
       int userID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
-      string description = quest.description;
-      List<string> requirements = new List<string>();
-      foreach (var item in quest.requirements)
-      {
-        requirements.Add(item.description);
-      }
       try
       {
+        string description = quest.description;
+        List<string> requirements = new List<string>();
+        foreach (var item in quest.requirements)
+        {
+          requirements.Add(item.description);
+        }
         questRepo.addQuest(userID, description, requirements);
         return StatusCode(200);
       }
