@@ -18,16 +18,14 @@ export class Weapons {
     }
     //speler ophalen
     weapons() {
-        this.http.fetch('Player/get', {
-            body: json(jwt_decode(this.auth.getAccessToken()).userid)
-        }).then(response => response.json())
+        this.http.fetch('Player/get').then(response => response.json())
             .then(data => {
                 this.weaponsplayer = data;
             });
     }
     //wapen toevoegen
     addWeapon() {
-        this.newWeapon = new newWeapon(this.name, this.damage, this.minlevel, jwt_decode(this.auth.getAccessToken()).userid);
+        this.newWeapon = new newWeapon(this.name, this.damage, this.minlevel);
         this.http.fetch('Weapon/addWeapon', {
             body: json(this.newWeapon)
         });
@@ -73,12 +71,10 @@ export class newWeapon {
     name: string;
     damage;
     minlevel;
-    playerID;
-    constructor(name: string, damage, minlevel, playerID) {
+    constructor(name: string, damage, minlevel) {
         this.name = name;
         this.damage = damage;
         this.minlevel = minlevel;
-        this.playerID = playerID;
     }
 }
 

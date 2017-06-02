@@ -36,14 +36,16 @@ namespace KillerApp.Controllers
     }
     //speler ophalen
     [HttpPost]
-    public JsonResult get([FromBody] int ID)
+    public JsonResult get()
     {
+      int ID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
       return Json(playerRepo.getPlayer(ID));
     }
     //alle spelers ophalen
     [HttpPost]
-    public JsonResult getPlayers([FromBody] int ID)
+    public JsonResult getPlayers()
     {
+      int ID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
       return Json(playerRepo.getPlayers(ID));
     }
     //Query gemiddelde wapen damage
@@ -62,7 +64,7 @@ namespace KillerApp.Controllers
     [HttpPost]
     public void update([FromBody] dynamic user)
     {
-      int ID = user.ID;
+      int ID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
       string className = user.className;
       int classID = 1;
       int level = user.level;

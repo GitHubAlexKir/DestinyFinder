@@ -38,7 +38,7 @@ namespace KillerApp.Controllers
     [HttpPost]
     public void addBounty([FromBody] dynamic bounty)
     {
-      int userID = bounty.playerID;
+      int userID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
       string description = bounty.description;
       string location = bounty.location;
       bountyRepo.addBounty(location, description, userID);

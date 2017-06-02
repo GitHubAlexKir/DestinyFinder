@@ -20,18 +20,14 @@ export class Fight {
     }
     //speler ophalen
     getPlayer() {
-        this.http.fetch('Player/get', {
-            body: json(jwt_decode(this.auth.getAccessToken()).userid)
-        }).then(response => response.json())
+        this.http.fetch('Player/get').then(response => response.json())
             .then(data => {
                 this.player = data;
             });
     }
     //alle spelers ophalen
     getPlayers() {
-        this.http.fetch('Player/getPlayers', {
-            body: json(jwt_decode(this.auth.getAccessToken()).userid)
-        }).then(response => response.json())
+        this.http.fetch('Player/getPlayers').then(response => response.json())
             .then(data => {
                 this.players = data;
                 this.opponent = this.players[0];
@@ -68,9 +64,7 @@ export class Fight {
     }
     //rewards ophalen
     getReward() {
-        this.http.fetch('Fight/getReward', {
-            body: json(jwt_decode(this.auth.getAccessToken()).userid)
-        }).then(response => response.text())
+        this.http.fetch('Fight/getReward').then(response => response.text())
             .then(data => {
                 swal({
                     title: "U heeft gewonnen!, U heeft " + String(data),

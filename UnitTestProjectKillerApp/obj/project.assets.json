@@ -11988,10 +11988,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Gebruiker\\Documenten\\Visual Studio 2017\\Projects\\KillerApp\\UnitTestProjectKillerApp\\UnitTestProjectKillerApp.csproj",
+      "projectUniqueName": "C:\\Users\\Alex\\Documents\\Visual Studio 2017\\Projects\\KillerApp\\UnitTestProjectKillerApp\\UnitTestProjectKillerApp.csproj",
       "projectName": "UnitTestProjectKillerApp",
-      "projectPath": "D:\\Gebruiker\\Documenten\\Visual Studio 2017\\Projects\\KillerApp\\UnitTestProjectKillerApp\\UnitTestProjectKillerApp.csproj",
-      "outputPath": "D:\\Gebruiker\\Documenten\\Visual Studio 2017\\Projects\\KillerApp\\UnitTestProjectKillerApp\\obj\\",
+      "projectPath": "C:\\Users\\Alex\\Documents\\Visual Studio 2017\\Projects\\KillerApp\\UnitTestProjectKillerApp\\UnitTestProjectKillerApp.csproj",
+      "outputPath": "C:\\Users\\Alex\\Documents\\Visual Studio 2017\\Projects\\KillerApp\\UnitTestProjectKillerApp\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"
@@ -11999,8 +11999,8 @@
       "frameworks": {
         "netcoreapp1.1": {
           "projectReferences": {
-            "D:\\Gebruiker\\Documenten\\Visual Studio 2017\\Projects\\KillerApp\\KillerApp\\KillerApp.csproj": {
-              "projectPath": "D:\\Gebruiker\\Documenten\\Visual Studio 2017\\Projects\\KillerApp\\KillerApp\\KillerApp.csproj"
+            "C:\\Users\\Alex\\Documents\\Visual Studio 2017\\Projects\\KillerApp\\KillerApp\\KillerApp.csproj": {
+              "projectPath": "C:\\Users\\Alex\\Documents\\Visual Studio 2017\\Projects\\KillerApp\\KillerApp\\KillerApp.csproj"
             }
           }
         }

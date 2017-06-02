@@ -39,7 +39,7 @@ namespace KillerApp.Controllers
     [HttpPost]
     public void addQuest([FromBody] Quest quest)
     {
-      int userID = quest.ID;
+      int userID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
       string description = quest.description;
       List<string> requirements = new List<string>();
       foreach (var item in quest.requirements)

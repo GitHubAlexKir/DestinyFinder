@@ -24,7 +24,7 @@ namespace KillerApp.Controllers
       string name = weapon.name;
       int damage = weapon.damage;
       int minlevel = weapon.minlevel;
-      int playerID = weapon.playerID;
+      int playerID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
       weaponRepo.addWeapon(name, damage, minlevel, playerID);
     }
     //wapen verwijderen

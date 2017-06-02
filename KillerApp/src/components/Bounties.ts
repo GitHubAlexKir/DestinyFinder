@@ -15,9 +15,7 @@ export class Bounties {
     }
     //speler ophalen
     bounties() {
-        this.http.fetch('Player/get', {
-            body: json(jwt_decode(this.auth.getAccessToken()).userid)
-        }).then(response => response.json())
+        this.http.fetch('Player/get').then(response => response.json())
             .then(data => {
                 this.playerBounties = data;
             });
@@ -31,7 +29,7 @@ export class Bounties {
     }
     //bounty toevoegen
     addBounty() {
-        this.newbounty = new newBounty(this.location, this.description, this.playerBounties.ID);
+        this.newbounty = new newBounty(this.location, this.description);
         this.http.fetch('Bounty/addBounty', {
             body: json(this.newbounty)
         });
@@ -68,10 +66,8 @@ export class Bounties {
 export class newBounty {
     location: string;
     description: string;
-    playerID;
-    constructor(location: string, description: string, playerID) {
+    constructor(location: string, description: string) {
         this.location = location;
         this.description = description;
-        this.playerID = playerID;
     }
 }

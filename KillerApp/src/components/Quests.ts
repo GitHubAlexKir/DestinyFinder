@@ -18,9 +18,7 @@ export class Quest {
     }
     //speler ophalen
     quests() {
-        this.http.fetch('Player/get', {
-            body: json(jwt_decode(this.auth.getAccessToken()).userid)
-        }).then(response => response.json())
+        this.http.fetch('Player/get').then(response => response.json())
             .then(data => {
                 this.playerQuests = data;
             });
@@ -40,7 +38,7 @@ export class Quest {
     }
     //eigen quest toevoegen
     addQuest() {
-        this.newQuest = new newQuest(this.requirements, this.name, this.playerQuests.ID);
+        this.newQuest = new newQuest(this.requirements, this.name);
         this.http.fetch('Quest/addQuest', {
             body: json(this.newQuest)
         });
@@ -69,10 +67,8 @@ export class requirement {
 export class newQuest {
     requirements;
     description;
-    ID;
-    constructor(requirements, name, userID) {
+    constructor(requirements, name) {
         this.requirements = requirements;
         this.description = name;
-        this.ID = userID;
     }
 }

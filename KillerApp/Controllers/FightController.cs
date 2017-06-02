@@ -37,8 +37,9 @@ namespace KillerApp.Controllers
     }
     //rewards bepalen en als string terug geven
     [HttpPost]
-    public string getReward([FromBody] int ID)
+    public string getReward()
     {
+      int ID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
       return playerRepo.getRewards(ID);
     }
   }

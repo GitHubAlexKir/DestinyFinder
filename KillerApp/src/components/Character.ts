@@ -19,9 +19,7 @@ export class Character {
     }
     //speler ophalen
     stats() {
-        this.http.fetch('Player/get', {
-            body: json(jwt_decode(this.auth.getAccessToken()).userid)
-        }).then(response => response.json())
+        this.http.fetch('Player/get').then(response => response.json())
             .then(data => {
                 console.log(data);
                 this.playerstats = data;
@@ -45,7 +43,7 @@ export class Character {
     }
     //speler updaten
     updatePlayer() {
-        this.updatedPlayer = new UpdatePlayer(this.playerstats.id, this.className, this.HP, this.level, this.XP);
+        this.updatedPlayer = new UpdatePlayer(this.className, this.HP, this.level, this.XP);
         this.http.fetch('Player/update', {
             body: json(this.updatedPlayer)
         });
@@ -55,14 +53,12 @@ export class Character {
 
 //class voor updaten van speler
 export class UpdatePlayer {
-    ID: string;
     className: string;
     HP;
     level;
     XP;
 
-    constructor(ID: string, className, HP, level, XP) {
-        this.ID = ID;
+    constructor(className, HP, level, XP) {
         this.className = className;
         this.HP = HP;
         this.level = level;
