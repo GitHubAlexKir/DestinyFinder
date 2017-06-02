@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using KillerApp.Repositories.BountyRepo;
+using System.IO;
 
 namespace KillerApp.Controllers
 {
@@ -19,7 +20,7 @@ namespace KillerApp.Controllers
     }
     //Bonty on InCompleted/Completed zetten
     [HttpPost]
-    public void setBounty([FromBody] dynamic bounty)
+    public IActionResult setBounty([FromBody] dynamic bounty)
     {
       int ID = bounty.id;
       string progressName = bounty.progress;
@@ -32,23 +33,70 @@ namespace KillerApp.Controllers
       {
         progress = 1;
       }
-      bountyRepo.setBounty(ID, progress);
+      try
+      {
+        bountyRepo.setBounty(ID, progress);
+        return StatusCode(200);
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return StatusCode(500);
+      }
+
     }
     //Bounty toevoegen
     [HttpPost]
-    public void addBounty([FromBody] dynamic bounty)
+    public IActionResult addBounty([FromBody] dynamic bounty)
     {
       int userID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
       string description = bounty.description;
       string location = bounty.location;
-      bountyRepo.addBounty(location, description, userID);
+      try
+      {
+        bountyRepo.addBounty(location, description, userID);
+        return StatusCode(200);
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return StatusCode(500);
+      }
+
     }
     //Bounty verwijderen
     [HttpPost]
-    public void deleteBounty([FromBody] dynamic bounty)
+    public IActionResult deleteBounty([FromBody] dynamic bounty)
     {
       int ID = bounty.id;
-      bountyRepo.deleteBounty(ID);
+      try
+      {
+        bountyRepo.deleteBounty(ID);
+        return StatusCode(200);
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return StatusCode(500);
+      }
+
+    }
+
+    private void logError(Exception ex)
+    {
+      string strPath = @"error.txt";
+      if (!System.IO.File.Exists(strPath))
+      {
+        System.IO.File.Create(strPath).Dispose();
+      }
+      using (StreamWriter sw = System.IO.File.AppendText(strPath))
+      {
+        sw.WriteLine("=============Error Logging ===========");
+        sw.WriteLine("===========Start============= " + DateTime.Now);
+        sw.WriteLine("Error Message: " + ex.Message);
+        sw.WriteLine("Stack Trace: " + ex.StackTrace);
+        sw.WriteLine("===========End============= " + DateTime.Now);
+      }
     }
   }
 }

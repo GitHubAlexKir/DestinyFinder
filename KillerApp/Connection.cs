@@ -13,14 +13,7 @@ namespace KillerApp
     public void Connect()
     {
       databaseConnection = new SqlConnection("Server=mssql.fhict.local;Database=dbi361412;User Id=dbi361412;Password=Wachtwoord2;");
-      try
-      {
-        databaseConnection.Open();
-      }
-      catch (Exception)
-      {
-        throw;
-      }
+      databaseConnection.Open();
     }
     public void disConnect()
     {

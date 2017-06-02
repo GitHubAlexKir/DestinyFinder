@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using KillerApp.Repositories.QuestRepo;
 using KillerApp.enitities;
+using System.IO;
 
 namespace KillerApp.Controllers
 {
@@ -20,7 +21,7 @@ namespace KillerApp.Controllers
     }
     //QuestRequirement op incompleet/compleet zetten
     [HttpPost]
-    public void setQuestRequirement([FromBody] dynamic quest)
+    public IActionResult setQuestRequirement([FromBody] dynamic quest)
     {
       int ID = quest.ID;
       string progressName = quest.progress;
@@ -33,11 +34,21 @@ namespace KillerApp.Controllers
       {
         progress = 1;
       }
-      questRepo.setQuestRequirement(ID, progress);
+      try
+      {
+        questRepo.setQuestRequirement(ID, progress);
+        return StatusCode(200);
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return StatusCode(500);
+      }
+
     }
     //quest toevoegen
     [HttpPost]
-    public void addQuest([FromBody] Quest quest)
+    public IActionResult addQuest([FromBody] Quest quest)
     {
       int userID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
       string description = quest.description;
@@ -46,13 +57,49 @@ namespace KillerApp.Controllers
       {
         requirements.Add(item.description);
       }
-      questRepo.addQuest(userID, description, requirements);
+      try
+      {
+        questRepo.addQuest(userID, description, requirements);
+        return StatusCode(200);
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return StatusCode(500);
+      }
+
     }
     //Query subquesten van mainquest ophalen
     [HttpPost]
     public JsonResult getMain()
     {
-      return Json(questRepo.getMainQuest());
+      try
+      {
+        return Json(questRepo.getMainQuest());
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return Json(null);
+      }
+
+    }
+
+    private void logError(Exception ex)
+    {
+      string strPath = @"error.txt";
+      if (!System.IO.File.Exists(strPath))
+      {
+        System.IO.File.Create(strPath).Dispose();
+      }
+      using (StreamWriter sw = System.IO.File.AppendText(strPath))
+      {
+        sw.WriteLine("=============Error Logging ===========");
+        sw.WriteLine("===========Start============= " + DateTime.Now);
+        sw.WriteLine("Error Message: " + ex.Message);
+        sw.WriteLine("Stack Trace: " + ex.StackTrace);
+        sw.WriteLine("===========End============= " + DateTime.Now);
+      }
     }
   }
 }

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using KillerApp.Repositories.WeaponRepo;
+using System.IO;
 
 namespace KillerApp.Controllers
 {
@@ -19,54 +20,141 @@ namespace KillerApp.Controllers
     }
     //Wapen toevoegen
     [HttpPost]
-    public void addWeapon([FromBody] dynamic weapon)
+    public IActionResult addWeapon([FromBody] dynamic weapon)
     {
       string name = weapon.name;
       int damage = weapon.damage;
       int minlevel = weapon.minlevel;
       int playerID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
-      weaponRepo.addWeapon(name, damage, minlevel, playerID);
+      try
+      {
+        weaponRepo.addWeapon(name, damage, minlevel, playerID);
+        return StatusCode(200);
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return StatusCode(500);
+      }
+
     }
     //wapen verwijderen
     [HttpPost]
-    public void deleteWeapon([FromBody] dynamic weapon)
+    public IActionResult deleteWeapon([FromBody] dynamic weapon)
     {
       int ID = weapon.id;
-      weaponRepo.deleteWeapon(ID);
+      try
+      {
+        weaponRepo.deleteWeapon(ID);
+        return StatusCode(200);
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return StatusCode(500);
+      }
+
     }
     //wapen veranderen
     [HttpPost]
-    public void editWeapon([FromBody] dynamic weapon)
+    public IActionResult editWeapon([FromBody] dynamic weapon)
     {
       string name = weapon.name;
       int damage = weapon.damage;
       int minlevel = weapon.minlevel;
       int weaponID = weapon.ID;
-      weaponRepo.editWeapon(name, damage, minlevel, weaponID);
+      try
+      {
+        weaponRepo.editWeapon(name, damage, minlevel, weaponID);
+        return StatusCode(200);
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return StatusCode(500);
+
+      }
+
     }
     //Query wapens boven damage 300 ophalen
     [HttpPost]
     public JsonResult getBest()
     {
-      return Json(weaponRepo.getBestWeapons());
+      try
+      {
+        return Json(weaponRepo.getBestWeapons());
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return Json(null);
+
+      }
+
     }
     //Query alle wapens ophalen
     [HttpPost]
     public JsonResult getAllWeapons()
     {
-      return Json(weaponRepo.getAllWeapons());
+      try
+      {
+        return Json(weaponRepo.getAllWeapons());
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return Json(null);
+
+      }
+
     }
     //Query totaal aantal wapens per speler ophalen
     [HttpPost]
     public JsonResult getTotalWeapons()
     {
-      return Json(weaponRepo.getTotalWeapons());
+      try
+      {
+        return Json(weaponRepo.getTotalWeapons());
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return Json(null);
+
+      }
+
     }
     //Query alle wapens ophalen per speler gesorteerd op totaal aantal
     [HttpPost]
     public JsonResult getTotalWeaponsSorted()
     {
-      return Json(weaponRepo.getTotalWeaponsSorted());
+      try
+      {
+        return Json(weaponRepo.getTotalWeaponsSorted());
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return Json(null);
+
+      }
+
+    }
+    private void logError(Exception ex)
+    {
+      string strPath = @"error.txt";
+      if (!System.IO.File.Exists(strPath))
+      {
+        System.IO.File.Create(strPath).Dispose();
+      }
+      using (StreamWriter sw = System.IO.File.AppendText(strPath))
+      {
+        sw.WriteLine("=============Error Logging ===========");
+        sw.WriteLine("===========Start============= " + DateTime.Now);
+        sw.WriteLine("Error Message: " + ex.Message);
+        sw.WriteLine("Stack Trace: " + ex.StackTrace);
+        sw.WriteLine("===========End============= " + DateTime.Now);
+      }
     }
 
   }
