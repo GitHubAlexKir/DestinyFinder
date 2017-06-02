@@ -4,6 +4,7 @@ using KillerApp;
 using KillerApp.Repositories.UserRepo;
 using System.Linq;
 using KillerApp.enitities;
+using KillerApp.Repositories.BountyRepo;
 
 namespace UnitTestProjectKillerApp
 {
@@ -74,6 +75,42 @@ namespace UnitTestProjectKillerApp
             IPlayerRepo playerRepo = new PlayerRepo();
             bool win = playerRepo.Fight(999999, 1, 1);
             Assert.AreEqual(win, true);
+        }
+
+        [TestMethod]
+        public void TestMethodBounty()
+        {
+            bool addPassed = false;
+            bool deletePassed = true;
+            int bountyID = 0;
+            IBountyRepo bountyRepo = new BountyRepo();
+            string testBounty = "1234567891QWERTYZXCVBNMKGLDOWN";
+            bountyRepo.addBounty(testBounty, testBounty, 1);
+            IPlayerRepo playerRepo = new PlayerRepo();
+            Player player = playerRepo.getPlayer(1);
+            foreach (Bounty item in player.bounties)
+            {
+                if (item.description == testBounty)
+                {
+                    addPassed = true;
+                    bountyID = item.ID;
+                }
+            }
+            bountyRepo.deleteBounty(bountyID);
+            player = playerRepo.getPlayer(1);
+            foreach (Bounty item in player.bounties)
+            {
+                if (item.description == testBounty)
+                {
+                    deletePassed = false;
+                }
+            }
+            bool passed = false;
+            if (addPassed && deletePassed)
+            {
+                passed = true;
+            }
+            Assert.AreEqual(passed, true);
         }
 
     }

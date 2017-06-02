@@ -12,3 +12,17 @@ D:\Gebruiker\Documenten\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKil
 D:\Gebruiker\Documenten\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\KillerApp.pdb
 D:\Gebruiker\Documenten\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\obj\Debug\netcoreapp1.1\UnitTestProjectKillerApp.dll
 D:\Gebruiker\Documenten\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\obj\Debug\netcoreapp1.1\UnitTestProjectKillerApp.pdb
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\UnitTestProjectKillerApp.deps.json
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\UnitTestProjectKillerApp.runtimeconfig.json
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\UnitTestProjectKillerApp.runtimeconfig.dev.json
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\UnitTestProjectKillerApp.dll
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\UnitTestProjectKillerApp.pdb
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\KillerApp.dll
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\bin\Debug\netcoreapp1.1\KillerApp.pdb
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\obj\Debug\netcoreapp1.1\UnitTestProjectKillerApp.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\obj\Debug\netcoreapp1.1\UnitTestProjectKillerApp.AssemblyInfo.cs
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\obj\Debug\netcoreapp1.1\UnitTestProjectKillerApp.dll
+C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\UnitTestProjectKillerApp\obj\Debug\netcoreapp1.1\UnitTestProjectKillerApp.pdb
