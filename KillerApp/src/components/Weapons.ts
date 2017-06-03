@@ -33,9 +33,7 @@ export class Weapons {
     }
     //wapen veranderen
     editWeapon(weapon) {
-        console.log(this.selectedWeapon);
         this.editweapon = new editWeapon(this.name, this.damage, this.minlevel, weapon.id);
-        console.log(this.editweapon);
         this.http.fetch('Weapon/editWeapon', {
             body: json(this.editweapon)
         });

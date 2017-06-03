@@ -313,13 +313,27 @@ namespace KillerApp.Repositories.UserRepo
         opponentHP -= challengerDamage;
         challengerHits++;
       }
-      if (challengerHits >= opponentHits)
+      if (challengerHits > opponentHits)
       {
         return false;
       }
       else
       {
-        return true;
+        if (challengerHits == opponentHits)
+        {
+          if (challengerDamage > opponentDamage)
+          {
+            return true;
+          }
+          else
+          {
+            return false;
+          }
+        }
+        else
+        {
+          return true;
+        }
       }
 
     }

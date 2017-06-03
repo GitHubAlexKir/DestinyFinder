@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace KillerApp.Repositories.WeaponRepo
 {
-  interface IWeaponRepo
+  public interface IWeaponRepo
   {
     void addWeapon(string name, int damage, int minLevel, int userID);
     void deleteWeapon(int ID);

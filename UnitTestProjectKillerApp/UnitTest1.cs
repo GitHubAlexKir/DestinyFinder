@@ -5,6 +5,7 @@ using KillerApp.Repositories.UserRepo;
 using System.Linq;
 using KillerApp.enitities;
 using KillerApp.Repositories.BountyRepo;
+using KillerApp.Repositories.WeaponRepo;
 
 namespace UnitTestProjectKillerApp
 {
@@ -99,6 +100,42 @@ namespace UnitTestProjectKillerApp
             foreach (Bounty item in player.bounties)
             {
                 if (item.description == testBounty)
+                {
+                    deletePassed = false;
+                }
+            }
+            bool passed = false;
+            if (addPassed && deletePassed)
+            {
+                passed = true;
+            }
+            Assert.AreEqual(passed, true);
+        }
+
+        [TestMethod]
+        public void TestMethodWeapon()
+        {
+            bool addPassed = false;
+            bool deletePassed = true;
+            int weaponID = 0;
+            IWeaponRepo weaponRepo = new WeaponRepo();
+            string testWeapon = "1234567891QWERTYZXCVBNMKGLDOWN";
+            weaponRepo.addWeapon(testWeapon, 100, 1, 1);
+            IPlayerRepo playerRepo = new PlayerRepo();
+            Player player = playerRepo.getPlayer(1);
+            foreach (Weapon item in player.weapons)
+            {
+                if (item.name == testWeapon)
+                {
+                    addPassed = true;
+                    weaponID = item.ID;
+                }
+            }
+            weaponRepo.deleteWeapon(weaponID);
+            player = playerRepo.getPlayer(1);
+            foreach (Weapon item in player.weapons)
+            {
+                if (item.name == testWeapon)
                 {
                     deletePassed = false;
                 }

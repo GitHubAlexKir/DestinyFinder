@@ -36,7 +36,6 @@ export class Fight {
     }
     //geselecteerde speler aanpassen
     select(player) {
-        console.log(player);
         this.selectedID = player.id;
         this.opponent = player;
         this.setImage();
@@ -74,7 +73,6 @@ export class Fight {
                     closeOnConfirm: true
                 });
             });
-        console.log(this.player)
     }
     //foto op klasse aanpassen
     setImage() {

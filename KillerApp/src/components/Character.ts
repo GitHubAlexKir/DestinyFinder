@@ -21,7 +21,6 @@ export class Character {
     stats() {
         this.http.fetch('Player/get').then(response => response.json())
             .then(data => {
-                console.log(data);
                 this.playerstats = data;
                 this.setImage();
             });
