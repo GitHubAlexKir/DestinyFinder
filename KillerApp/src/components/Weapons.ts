@@ -64,6 +64,13 @@ export class Weapons {
         });
 
     }
+    randomWeapon() {
+        this.http.fetch('Weapon/random', {
+            body: json(this.weaponsplayer.level)
+        }).then(response => {
+            this.weapons();
+            });
+    }
 }
 export class newWeapon {
     name: string;

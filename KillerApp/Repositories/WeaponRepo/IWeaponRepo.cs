@@ -15,5 +15,6 @@ namespace KillerApp.Repositories.WeaponRepo
     List<WeaponUser> getAllWeapons();
     List<WeaponUser> getTotalWeapons();
     List<WeaponUser> getTotalWeaponsSorted();
+    void random(int playerID, int playerlevel);
   }
 }

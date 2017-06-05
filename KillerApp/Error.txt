@@ -115,3 +115,112 @@ Stack Trace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exce
    at KillerApp.Repositories.BountyRepo.BountyRepo.addBounty(String location, String description, Int32 userID) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\BountyRepo\BountyRepo.cs:line 35
    at KillerApp.Controllers.BountyController.addBounty(Object bounty) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\BountyController.cs:line 58
 ===========End============= 2-6-2017 16:48:37
+=============Error Logging ===========
+===========Start============= 4-6-2017 22:47:16
+Error Message: Cannot insert the value NULL into column 'Naam', table 'KillerApp.dbo.Wapen'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+Stack Trace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at KillerApp.Repositories.UserRepo.PlayerRepo.updatePlayer(Int32 iD, Int32 classID, Int32 HP, Int32 level, Int32 XP) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 275
+   at KillerApp.Repositories.UserRepo.PlayerRepo.getRewards(Int32 challenger) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 357
+   at KillerApp.Controllers.FightController.getReward() in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\FightController.cs:line 46
+===========End============= 4-6-2017 22:47:16
+=============Error Logging ===========
+===========Start============= 4-6-2017 22:47:39
+Error Message: Cannot insert the value NULL into column 'Naam', table 'KillerApp.dbo.Wapen'; column does not allow nulls. INSERT fails.
+The statement has been terminated.
+Stack Trace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at KillerApp.Repositories.UserRepo.PlayerRepo.updatePlayer(Int32 iD, Int32 classID, Int32 HP, Int32 level, Int32 XP) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 275
+   at KillerApp.Repositories.UserRepo.PlayerRepo.getRewards(Int32 challenger) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 357
+   at KillerApp.Controllers.FightController.getReward() in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\FightController.cs:line 46
+===========End============= 4-6-2017 22:47:39
+=============Error Logging ===========
+===========Start============= 4-6-2017 22:51:08
+Error Message: Conversion failed when converting the varchar value 'The Inwarded Lamp' to data type int.
+Stack Trace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at KillerApp.Repositories.UserRepo.PlayerRepo.updatePlayer(Int32 iD, Int32 classID, Int32 HP, Int32 level, Int32 XP) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 275
+   at KillerApp.Controllers.PlayerController.update(Object user) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\PlayerController.cs:line 125
+===========End============= 4-6-2017 22:51:09
+=============Error Logging ===========
+===========Start============= 4-6-2017 22:51:28
+Error Message: Conversion failed when converting the varchar value 'The 4th Horseman' to data type int.
+Stack Trace:    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at KillerApp.Repositories.UserRepo.PlayerRepo.updatePlayer(Int32 iD, Int32 classID, Int32 HP, Int32 level, Int32 XP) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 275
+   at KillerApp.Controllers.PlayerController.update(Object user) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\PlayerController.cs:line 125
+===========End============= 4-6-2017 22:51:28
+=============Error Logging ===========
+===========Start============= 4-6-2017 23:00:34
+Error Message: Cannot convert null to 'int' because it is a non-nullable value type
+Stack Trace:    at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object )
+   at CallSite.Target(Closure , CallSite , Object )
+   at KillerApp.Controllers.PlayerController.update(Object user) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\PlayerController.cs:line 110
+===========End============= 4-6-2017 23:00:34
+=============Error Logging ===========
+===========Start============= 5-6-2017 20:49:45
+Error Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at KillerApp.Repositories.UserRepo.PlayerRepo.getPlayer(Int32 ID) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 118
+   at KillerApp.Controllers.PlayerController.get() in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\PlayerController.cs:line 47
+===========End============= 5-6-2017 20:49:45
+=============Error Logging ===========
+===========Start============= 5-6-2017 20:49:57
+Error Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at KillerApp.Repositories.UserRepo.PlayerRepo.getPlayer(Int32 ID) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 118
+   at KillerApp.Controllers.PlayerController.get() in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\PlayerController.cs:line 47
+===========End============= 5-6-2017 20:49:57
+=============Error Logging ===========
+===========Start============= 5-6-2017 20:51:29
+Error Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at KillerApp.Repositories.UserRepo.PlayerRepo.getPlayer(Int32 ID) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 118
+   at KillerApp.Controllers.PlayerController.get() in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\PlayerController.cs:line 47
+===========End============= 5-6-2017 20:51:30
+=============Error Logging ===========
+===========Start============= 5-6-2017 20:53:36
+Error Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at KillerApp.Repositories.UserRepo.PlayerRepo.getPlayer(Int32 ID) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 118
+   at KillerApp.Controllers.PlayerController.get() in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\PlayerController.cs:line 47
+===========End============= 5-6-2017 20:53:36
+=============Error Logging ===========
+===========Start============= 5-6-2017 20:53:42
+Error Message: Invalid attempt to read when no data is present.
+Stack Trace:    at System.Data.SqlClient.SqlDataReader.CheckDataIsReady(Int32 columnIndex, Boolean allowPartiallyReadColumn, Boolean permitAsync, String methodName)
+   at System.Data.SqlClient.SqlDataReader.GetValueInternal(Int32 i)
+   at System.Data.SqlClient.SqlDataReader.GetValue(Int32 i)
+   at KillerApp.Repositories.UserRepo.PlayerRepo.getPlayer(Int32 ID) in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Repositories\PlayerRepo\PlayerRepo.cs:line 118
+   at KillerApp.Controllers.PlayerController.get() in C:\Users\Alex\Documents\Visual Studio 2017\Projects\KillerApp\KillerApp\Controllers\PlayerController.cs:line 47
+===========End============= 5-6-2017 20:53:42

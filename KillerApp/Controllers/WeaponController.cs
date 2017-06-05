@@ -141,6 +141,23 @@ namespace KillerApp.Controllers
       }
 
     }
+    //trigger random weapon
+    [HttpPost]
+    public IActionResult random([FromBody] int playerlevel)
+    {
+      try
+      {
+        int playerID = Convert.ToInt32(User.Claims.Single(c => c.Type == "userid").Value);
+        weaponRepo.random(playerID, playerlevel);
+        return StatusCode(200);
+      }
+      catch (Exception ex)
+      {
+        logError(ex);
+        return StatusCode(500);
+
+      }
+    }
     private void logError(Exception ex)
     {
       string strPath = @"error.txt";

@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using KillerApp.enitities;
+using System.Data;
 
 namespace KillerApp.Repositories.WeaponRepo
 {
@@ -112,6 +113,17 @@ namespace KillerApp.Repositories.WeaponRepo
       }
       connection.disConnect();
       return weapons;
+    }
+
+    public void random(int playerID, int playerlevel)
+    {
+      connection.Connect();
+      SqlCommand command = new SqlCommand("randomWeapon", connection.getConnection());
+      command.CommandType = CommandType.StoredProcedure;
+      command.Parameters.Add(new SqlParameter("@spelerID", playerID));
+      command.Parameters.Add(new SqlParameter("@level", playerlevel));
+      command.ExecuteNonQuery();
+      connection.disConnect();
     }
   }
 }
