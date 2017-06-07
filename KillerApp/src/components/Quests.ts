@@ -6,7 +6,7 @@ import * as jwt_decode from 'jwt-decode';
 
 @autoinject
 export class Quest {
-    playerQuests;
+    player;
     selectedQuest;
     name;
     description;
@@ -20,7 +20,7 @@ export class Quest {
     quests() {
         this.http.fetch('Player/get').then(response => response.json())
             .then(data => {
-                this.playerQuests = data;
+                this.player = data;
             });
     }
     //Quest status aanpassen

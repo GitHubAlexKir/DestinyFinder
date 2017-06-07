@@ -6,7 +6,7 @@ import * as jwt_decode from 'jwt-decode';
 
 @autoinject
 export class Weapons {
-    weaponsplayer;
+    player;
     name;
     damage;
     minlevel;
@@ -20,7 +20,7 @@ export class Weapons {
     weapons() {
         this.http.fetch('Player/get').then(response => response.json())
             .then(data => {
-                this.weaponsplayer = data;
+                this.player = data;
             });
     }
     //wapen toevoegen
@@ -66,7 +66,7 @@ export class Weapons {
     }
     randomWeapon() {
         this.http.fetch('Weapon/random', {
-            body: json(this.weaponsplayer.level)
+            body: json(this.player.level)
         }).then(response => {
             this.weapons();
             });

@@ -6,7 +6,7 @@ import * as jwt_decode from 'jwt-decode';
 
 @autoinject
 export class Character {
-    playerstats;
+    player;
     playerurl = "/Images/Warlock.png";
     updatedPlayer;
     className;
@@ -21,13 +21,13 @@ export class Character {
     stats() {
         this.http.fetch('Player/get').then(response => response.json())
             .then(data => {
-                this.playerstats = data;
+                this.player = data;
                 this.setImage();
             });
     }
     //foto op klasse wijzigen
     setImage() {
-        switch (this.playerstats.classID) {
+        switch (this.player.classID) {
             case 1:
                 this.playerurl = "/images/hunter.png";
                 break;

@@ -6,7 +6,7 @@ import * as jwt_decode from 'jwt-decode';
 
 @autoinject
 export class Bounties {
-    playerBounties;
+    player;
     location;
     description;
     newbounty;
@@ -17,7 +17,7 @@ export class Bounties {
     bounties() {
         this.http.fetch('Player/get').then(response => response.json())
             .then(data => {
-                this.playerBounties = data;
+                this.player = data;
             });
     }
     //bounty status aanpassen

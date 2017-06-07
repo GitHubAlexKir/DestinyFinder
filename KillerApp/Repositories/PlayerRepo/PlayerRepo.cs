@@ -240,24 +240,6 @@ namespace KillerApp.Repositories.UserRepo
       return bounties;
     }
 
-    public void UpdatePlayer(Player player)
-    {
-      connection.Connect();
-      SqlCommand sqlCommand = new SqlCommand("update speler set classID = @ClassID where id = @ID", connection.getConnection());
-      sqlCommand.Parameters.AddWithValue("@ID", player.ID);
-      sqlCommand.Parameters.AddWithValue("@ClassID", player.classID);
-      sqlCommand.ExecuteNonQuery();
-      connection.disConnect();
-      connection.Connect();
-      sqlCommand = new SqlCommand("update statistiek set HP = @HP, playerlevel = @level, XPNextLevel = @XP where spelerid = @spelerID", connection.getConnection());
-      sqlCommand.Parameters.AddWithValue("@spelerID", player.ID);
-      sqlCommand.Parameters.AddWithValue("@HP", player.HP);
-      sqlCommand.Parameters.AddWithValue("@Level", player.level);
-      sqlCommand.Parameters.AddWithValue("@XP", player.XPNextLevel);
-      sqlCommand.ExecuteNonQuery();
-      connection.disConnect();
-    }
-
     public Player updatePlayer(int iD, int classID, int HP, int level, int XP)
     {
       connection.Connect();

@@ -33,7 +33,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="row" repeat.for="quest of playerQuests.quests">
+        <div class="row" repeat.for="quest of player.quests">
           <div class="col">
             <h4><b>${quest.description} ${quest.progress}</b></h4>
             <div class="col" repeat.for="requirement of quest.requirements">

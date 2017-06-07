@@ -37,18 +37,13 @@ namespace KillerApp.Controllers
 
       if (!playerRepo.login(name, password)) throw new UnauthorizedAccessException();
 
-      return CreateAccessToken(playerRepo.getID(name), new[] { "user" });
+      return CreateAccessToken(playerRepo.getID(name));
     }
 
 
-    private static AccessToken CreateAccessToken(string userId, string[] roles)
+    private static AccessToken CreateAccessToken(string userId)
     {
       var claims = new List<Claim>();
-
-      foreach (string role in roles)
-      {
-        claims.Add(new Claim("roles", role));
-      }
       claims.Add(new Claim("userid", userId));
 
       var signing = new SigningCredentials(new SymmetricSecurityKey(new byte[32]), SecurityAlgorithms.HmacSha256);
@@ -71,24 +66,4 @@ namespace KillerApp.Controllers
   {
     public string access_token { get; set; }
   }
-
-  public class UserCredentials
-  {
-    public string username { get; set; }
-    public string password { get; set; }
-  }
-
-  public class OpenIdToken
-  {
-    public string clientId { get; set; }
-    public string redirectUri { get; set; }
-    public string state { get; set; }
-    public string code { get; set; }
-    public string authuser { get; set; }
-    public string session_state { get; set; }
-    public string prompt { get; set; }
-    public string consent { get; set; }
-  }
-
-
 }

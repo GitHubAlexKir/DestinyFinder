@@ -14,9 +14,6 @@ export class App {
     constructor(private http: HttpClient, private config: FetchConfig, private authService: AuthService, private event: EventAggregator) {
         this.configHttp();
         this.authenticated = this.authService.authenticated;
-        if (this.authenticated) {
-            alert(jwt_decode(this.authService.getAccessToken()).userid);
-        }
     }
 
     attached() {
@@ -46,7 +43,7 @@ export class App {
         let step = new AuthorizeStep(this.authService);
         config.addAuthorizeStep(step);
 
-        config.title = 'Aurelia';
+        config.title = 'DestinyFinder ~ Alex Kir';
         config.map([
             { route: ['/', 'Character'], name: 'Character', moduleId: 'components/Character', auth: true },
             { route: ['/', 'Weapons'], name: 'Weapons', moduleId: 'components/Weapons', auth: true },
