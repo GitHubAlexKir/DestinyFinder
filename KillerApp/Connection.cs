@@ -12,7 +12,7 @@ namespace KillerApp
     public SqlConnection databaseConnection;
     public void Connect()
     {
-      databaseConnection = new SqlConnection("Server=192.168.21.22;Database=killerapp;User Id=sa;Password=Wachtwoord2;");
+      databaseConnection = new SqlConnection("Server=127.0.0.1;Database=killerapp;User Id=sa;Password=Wachtwoord2;");
       databaseConnection.Open();
     }
     public void disConnect()
