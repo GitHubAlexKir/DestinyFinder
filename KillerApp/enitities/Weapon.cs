@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace KillerApp.enitities
 {
+  /// <summary>
+  /// Weapon entititeit met de attributen
+  /// </summary>
   public class Weapon
   {
     public int ID;

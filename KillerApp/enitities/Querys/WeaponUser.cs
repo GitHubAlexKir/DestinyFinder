@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace KillerApp.enitities
 {
+  /// <summary>
+  /// voor het ophalen van ee nwapen met de speler's naam
+  /// </summary>
   public class WeaponUser
   {
     public string name;

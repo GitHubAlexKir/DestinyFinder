@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace KillerApp.enitities
 {
+  /// <summary>
+  /// Voor het ophalen van aantal gebruikers per class
+  /// </summary>
   public class TotalClass
   {
     public string name;

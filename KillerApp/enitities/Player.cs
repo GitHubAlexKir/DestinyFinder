@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace KillerApp.enitities
 {
+  /// <summary>
+  /// Player entititeit met de attributen
+  /// </summary>
   public class Player
   {
     public int ID;

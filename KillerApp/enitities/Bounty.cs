@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace KillerApp.enitities
 {
+  /// <summary>
+  /// bounty entititeit met de attributen
+  /// </summary>
   public class Bounty
   {
     public int ID;

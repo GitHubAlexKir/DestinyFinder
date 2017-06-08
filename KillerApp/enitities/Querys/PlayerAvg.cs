@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace KillerApp.enitities
 {
+  /// <summary>
+  /// Voor het ophalen van een wapennaam en een gemiddelde damage
+  /// </summary>
   public class PlayerAvg
   {
     public string name;

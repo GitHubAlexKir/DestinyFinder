@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace KillerApp.enitities
 {
+  /// <summary>
+  /// QuestRequirement entititeit met de attributen
+  /// </summary>
   public class QuestRequirement
   {
     public int ID;
